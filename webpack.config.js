@@ -12,6 +12,9 @@ module.exports = {
     inline: true,
     port: 1337,
   },
+  resolve: {
+    extensions: [`.js`, `.jsx`]
+  },
   module: {
     rules: [
       {
