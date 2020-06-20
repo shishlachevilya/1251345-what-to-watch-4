@@ -1,31 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import MovieList from "../movie-list/movie-list";
 
 const Main = (props) => {
   const {
-    info: {title, genre, releaseDate},
-    moviesTitleList,
-    onTitleClickHandler
+    movies
   } = props;
-
-  const renderMoviesList = (list) => {
-    return list.map((item, i) => {
-      return (
-        <article key={i} className="small-movie-card catalog__movies-card">
-          <div className="small-movie-card__image">
-            <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt={item} width="280" height="175"/>
-          </div>
-
-          <h3
-            className="small-movie-card__title"
-            onClick={onTitleClickHandler}
-          >
-            <a className="small-movie-card__link" href="movie-page.html">{item}</a>
-          </h3>
-        </article>
-      );
-    });
-  };
 
   return (
     <React.Fragment>
@@ -55,15 +35,15 @@ const Main = (props) => {
         <div className="movie-card__wrap">
           <div className="movie-card__info">
             <div className="movie-card__poster">
-              <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster"
-                width="218" height="327"/>
+              <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218"
+                height="327"/>
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">{title}</h2>
+              <h2 className="movie-card__title">The Grand Budapest Hotel</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">{genre}</span>
-                <span className="movie-card__year">{releaseDate}</span>
+                <span className="movie-card__genre">Drama</span>
+                <span className="movie-card__year">2014</span>
               </p>
 
               <div className="movie-card__buttons">
@@ -123,7 +103,11 @@ const Main = (props) => {
           </ul>
 
           <div className="catalog__movies-list">
-            {renderMoviesList(moviesTitleList)}
+            {
+              <MovieList
+                movies={movies}
+              />
+            }
           </div>
 
           <div className="catalog__more">
@@ -150,17 +134,13 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  info: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    releaseDate: PropTypes.string.isRequired
-  }),
-  moviesTitleList: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onTitleClickHandler: PropTypes.func
-};
-
-Main.defautProps = {
-  onTitleClickHandler: () => {}
+  movies: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        path: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired
+      })
+  ).isRequired
 };
 
 export default Main;

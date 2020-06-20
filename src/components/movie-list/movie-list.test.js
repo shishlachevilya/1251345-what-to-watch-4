@@ -1,12 +1,8 @@
-import React from 'react';
-import Main from "./main";
-import {shallow} from "enzyme";
-import {configure} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
+import React from "react";
+import renderer from 'react-test-renderer';
+import MovieList from "./movie-list";
 
-configure({adapter: new Adapter()});
-
-const props = [
+const movies = [
   {
     id: `1`,
     path: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
@@ -46,20 +42,14 @@ const props = [
     id: `8`,
     path: `img/johnny-english.jpg`,
     title: `Johnny English`
-  }
+  },
 ];
 
-describe(`Main component`, () => {
-  it(`should click button`, () => {
-    const onTitleClickHandler = jest.fn();
-
-    const component = shallow(
-        <Main
-          movies={props}
-        />
-    );
-
-    component.find(`.small-movie-card__title`).map((node) => node.simulate(`click`));
-    expect(onTitleClickHandler).toHaveBeenCalledTimes(20);
+describe(`MovieList component test`, () => {
+  it(`renders correctly`, () => {
+    const tree = renderer
+    .create(<MovieList movies={movies}/>)
+    .toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });
