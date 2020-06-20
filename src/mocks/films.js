@@ -1,8 +1,4 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import App from "./app";
-
-const props = [
+export default [
   {
     id: `1`,
     path: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
@@ -42,19 +38,5 @@ const props = [
     id: `8`,
     path: `img/johnny-english.jpg`,
     title: `Johnny English`
-  }
+  },
 ];
-
-describe(`App component test`, () => {
-  it(`component should renders correctly`, () => {
-    const tree = renderer
-    .create(
-        <App
-          movies={props}
-        />)
-    .toJSON();
-
-    expect(tree).toMatchSnapshot();
-  });
-});
-

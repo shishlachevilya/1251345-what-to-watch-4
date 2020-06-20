@@ -1,13 +1,8 @@
 import React from "react";
-import renderer from "react-test-renderer";
-import Main from "./main";
-import {shallow} from "enzyme";
-import {configure} from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
+import renderer from 'react-test-renderer';
+import MovieList from "./movie-list";
 
-configure({adapter: new Adapter()});
-
-const props = [
+const movies = [
   {
     id: `1`,
     path: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
@@ -47,24 +42,18 @@ const props = [
     id: `8`,
     path: `img/johnny-english.jpg`,
     title: `Johnny English`
-  }
+  },
 ];
 
-describe(`Main component test`, () => {
-  it(`component should renders correctly`, () => {
+describe(`MovieList component test`, () => {
+  it(`renders correctly`, () => {
     const tree = renderer
     .create(
-        <Main
-          movies={props}
+        <MovieList
+          movies={movies}
           onCardTitleClick={() => {}}
-        />
-    )
+        />)
     .toJSON();
     expect(tree).toMatchSnapshot();
-  });
-
-  it(`component should contain 8 articles`, () => {
-    const wrapper = shallow(<Main movies={props} onCardTitleClick={() => {}}/>);
-    expect(wrapper.find(`.small-movie-card`).map((card) => card.toHaveLength(8)));
   });
 });

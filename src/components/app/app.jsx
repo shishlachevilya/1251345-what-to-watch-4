@@ -2,24 +2,41 @@ import React from "react";
 import PropTypes from "prop-types";
 import Main from "../main/main.jsx";
 
-const App = (props) => {
-  const {info, moviesTitleList} = props;
+class App extends React.PureComponent {
+  constructor(props) {
+    super(props);
 
-  return (
-    <Main
-      info={info}
-      moviesTitleList={moviesTitleList}
-    />
-  );
-};
+    this.state = {
+      activeMovieCardInfo: {}
+    };
+
+    this.handleMovieCardTitleClick = this.handleMovieCardTitleClick.bind(this);
+  }
+
+  handleMovieCardTitleClick(activeCard) {
+    this.setState({activeMovieCardInfo: activeCard});
+  }
+
+  render() {
+    const {movies} = this.props;
+
+    return (
+      <Main
+        movies={movies}
+        onCardTitleClick={this.handleMovieCardTitleClick}
+      />
+    );
+  }
+}
 
 App.propTypes = {
-  info: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    releaseDate: PropTypes.string.isRequired
-  }),
-  moviesTitleList: PropTypes.arrayOf(PropTypes.string).isRequired
+  movies: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        path: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired
+      })
+  ).isRequired
 };
 
 export default App;
