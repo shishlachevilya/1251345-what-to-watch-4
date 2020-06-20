@@ -19,6 +19,7 @@ describe(`MovieCard Component`, () => {
         <MovieCard
           card={card}
           onMouseOver={onMovieCardHover}
+          onCardTitleClick={() => {}}
         />
     );
 
@@ -29,5 +30,33 @@ describe(`MovieCard Component`, () => {
     onMovieCardHover.mockImplementation(() => card.id);
 
     expect(onMovieCardHover()).toBe(`2`);
+  });
+
+  it(`check title click`, () => {
+    const card = {
+      id: `2`,
+      path: `img/bohemian-rhapsody.jpg`,
+      title: `Bohemian Rhapsody`
+    };
+
+    const onCardTitleClick = jest.fn();
+
+    const component = shallow(
+        <MovieCard
+          card={card}
+          onMouseOver={() => {}}
+          onCardTitleClick={onCardTitleClick}
+        />
+    );
+
+    const mockEvent = {
+      preventDefault() {}
+    };
+
+    component.find(`.small-movie-card__link`).simulate(`click`, mockEvent);
+
+    expect(onCardTitleClick).toHaveBeenCalledTimes(1);
+
+    expect(onCardTitleClick).toHaveBeenCalledWith(card);
   });
 });

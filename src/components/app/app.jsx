@@ -2,13 +2,32 @@ import React from "react";
 import PropTypes from "prop-types";
 import Main from "../main/main.jsx";
 
-const App = (props) => {
-  const {movies} = props;
+class App extends React.PureComponent {
+  constructor(props) {
+    super(props);
 
-  return (
-    <Main movies={movies} />
-  );
-};
+    this.state = {
+      activeMovieCardInfo: {}
+    };
+
+    this.handleMovieCardTitleClick = this.handleMovieCardTitleClick.bind(this);
+  }
+
+  handleMovieCardTitleClick(activeCard) {
+    this.setState({activeMovieCardInfo: activeCard});
+  }
+
+  render() {
+    const {movies} = this.props;
+
+    return (
+      <Main
+        movies={movies}
+        onCardTitleClick={this.handleMovieCardTitleClick}
+      />
+    );
+  }
+}
 
 App.propTypes = {
   movies: PropTypes.arrayOf(

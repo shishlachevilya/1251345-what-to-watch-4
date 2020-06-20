@@ -1,10 +1,11 @@
 import React from 'react';
-import Main from "./main";
-import {shallow} from "enzyme";
-import {configure} from "enzyme";
+import Enzyme, {shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
+import Main from "./main";
 
-configure({adapter: new Adapter()});
+Enzyme.configure({
+  adapter: new Adapter(),
+});
 
 const props = [
   {
@@ -50,16 +51,20 @@ const props = [
 ];
 
 describe(`Main component`, () => {
-  it(`should click button`, () => {
-    const onTitleClickHandler = jest.fn();
+  it(`should click title`, () => {
+    const onCardTitleClick = jest.fn();
 
     const component = shallow(
         <Main
           movies={props}
+          onCardTitleClick={onCardTitleClick}
         />
     );
 
-    component.find(`.small-movie-card__title`).map((node) => node.simulate(`click`));
-    expect(onTitleClickHandler).toHaveBeenCalledTimes(20);
+    const movieTitles = component.find(`.small-movie-card__link`);
+
+    movieTitles.forEach((title) => title.simulate(`click`));
+
+    expect(onCardTitleClick).toHaveBeenCalledTimes(movieTitles.length);
   });
 });

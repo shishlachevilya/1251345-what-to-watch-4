@@ -4,7 +4,8 @@ import MovieList from "../movie-list/movie-list";
 
 const Main = (props) => {
   const {
-    movies
+    movies,
+    onCardTitleClick
   } = props;
 
   return (
@@ -106,6 +107,7 @@ const Main = (props) => {
             {
               <MovieList
                 movies={movies}
+                onCardTitleClick={onCardTitleClick}
               />
             }
           </div>
@@ -140,7 +142,8 @@ Main.propTypes = {
         path: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired
       })
-  ).isRequired
+  ).isRequired,
+  onCardTitleClick: PropTypes.func.isRequired
 };
 
 export default Main;

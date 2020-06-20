@@ -11,7 +11,12 @@ const card = {
 describe(`MovieCard component test`, () => {
   it(`renders correctly`, () => {
     const tree = renderer
-    .create(<MovieCard card={card} onMouseOver={() => {}}/>)
+    .create(
+        <MovieCard
+          card={card}
+          onMouseOver={() => {}}
+          onCardTitleClick={() => {}}
+        />)
     .toJSON();
     expect(tree).toMatchSnapshot();
   });

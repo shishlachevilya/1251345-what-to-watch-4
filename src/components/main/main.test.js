@@ -56,6 +56,7 @@ describe(`Main component test`, () => {
     .create(
         <Main
           movies={props}
+          onCardTitleClick={() => {}}
         />
     )
     .toJSON();
@@ -63,7 +64,7 @@ describe(`Main component test`, () => {
   });
 
   it(`component should contain 8 articles`, () => {
-    const wrapper = shallow(<Main movies={props} />);
+    const wrapper = shallow(<Main movies={props} onCardTitleClick={() => {}}/>);
     expect(wrapper.find(`.small-movie-card`).map((card) => card.toHaveLength(8)));
   });
 });

@@ -8,7 +8,8 @@ const MovieCard = (props) => {
       path,
       title
     },
-    onMouseOver
+    onMouseOver,
+    onCardTitleClick
   } = props;
 
   return (
@@ -22,7 +23,14 @@ const MovieCard = (props) => {
       </div>
 
       <h3 className="small-movie-card__title">
-        <a className="small-movie-card__link" href="movie-page.html">{title}</a>
+        <a
+          className="small-movie-card__link"
+          href="movie-page.html"
+          onClick={(e) => {
+            e.preventDefault();
+            onCardTitleClick({id, path, title});
+          }}
+        >{title}</a>
       </h3>
     </article>
   );
@@ -34,7 +42,8 @@ MovieCard.propTypes = {
     path: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired
   }),
-  onMouseOver: PropTypes.func.isRequired
+  onMouseOver: PropTypes.func.isRequired,
+  onCardTitleClick: PropTypes.func.isRequired
 };
 
 export default MovieCard;

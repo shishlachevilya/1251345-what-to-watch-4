@@ -48,7 +48,11 @@ const movies = [
 describe(`MovieList component test`, () => {
   it(`renders correctly`, () => {
     const tree = renderer
-    .create(<MovieList movies={movies}/>)
+    .create(
+        <MovieList
+          movies={movies}
+          onCardTitleClick={() => {}}
+        />)
     .toJSON();
     expect(tree).toMatchSnapshot();
   });
