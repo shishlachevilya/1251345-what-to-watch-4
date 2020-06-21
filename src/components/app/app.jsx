@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Main from "../main/main.jsx";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
+import MovieDetail from "../movie-detail/movie-detail";
 
 class App extends React.PureComponent {
   constructor(props) {
@@ -19,24 +21,28 @@ class App extends React.PureComponent {
 
   render() {
     const {movies} = this.props;
+    const {activeMovieCardInfo} = this.state;
 
     return (
-      <Main
-        movies={movies}
-        onCardTitleClick={this.handleMovieCardTitleClick}
-      />
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/">
+            <Main
+              movies={movies}
+              onCardTitleClick={this.handleMovieCardTitleClick}
+            />
+          </Route>
+          <Route path="/detail">
+            <MovieDetail activeMovieCard={activeMovieCardInfo}/>
+          </Route>
+        </Switch>
+      </BrowserRouter>
     );
   }
 }
 
 App.propTypes = {
-  movies: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        path: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired
-      })
-  ).isRequired
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default App;

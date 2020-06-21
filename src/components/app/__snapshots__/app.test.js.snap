@@ -265,26 +265,29 @@ Array [
             id="1"
             onMouseOver={[Function]}
           >
-            <div
-              className="small-movie-card__image"
+            <a
+              href="/detail"
+              onClick={[Function]}
             >
-              <img
-                alt="Fantastic Beasts: The Crimes of Grindelwald"
-                height="175"
-                src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
-                width="280"
-              />
-            </div>
+              <div
+                className="small-movie-card__image"
+                onClick={[Function]}
+              >
+                <img
+                  height="175"
+                  width="280"
+                />
+              </div>
+            </a>
             <h3
               className="small-movie-card__title"
+              onClick={[Function]}
             >
               <a
                 className="small-movie-card__link"
-                href="movie-page.html"
+                href="/detail"
                 onClick={[Function]}
-              >
-                Fantastic Beasts: The Crimes of Grindelwald
-              </a>
+              />
             </h3>
           </article>
         </div>

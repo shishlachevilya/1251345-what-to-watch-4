@@ -2,7 +2,7 @@ import React from "react";
 import Enzyme, {mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Main from "./main";
-// import shallow from "enzyme/src/shallow";
+import {BrowserRouter as Router} from "react-router-dom";
 
 Enzyme.configure({
   adapter: new Adapter(),
@@ -27,15 +27,17 @@ describe(`Main component`, () => {
     const onCardTitleClick = jest.fn();
 
     const component = mount(
-        <Main
-          movies={movies}
-          onCardTitleClick={onCardTitleClick}
-        />
+        <Router>
+          <Main
+            movies={movies}
+            onCardTitleClick={onCardTitleClick}
+          />
+        </Router>
     );
 
     const movieTitles = component.find(`.small-movie-card__link`);
 
-    movieTitles.simulate(`click`, mockEvent);
+    movieTitles.at(0).simulate(`click`, mockEvent);
 
     expect(onCardTitleClick.mock.calls[0][0]).toEqual(mockData);
   });
