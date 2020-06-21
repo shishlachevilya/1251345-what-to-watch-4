@@ -1,5 +1,5 @@
 import React from "react";
-import Enzyme, {render} from "enzyme";
+import Enzyme, {mount} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Main from "./main";
 // import shallow from "enzyme/src/shallow";
@@ -26,7 +26,7 @@ describe(`Main component`, () => {
 
     const onCardTitleClick = jest.fn();
 
-    const component = render(
+    const component = mount(
         <Main
           movies={movies}
           onCardTitleClick={onCardTitleClick}
@@ -35,13 +35,7 @@ describe(`Main component`, () => {
 
     const movieTitles = component.find(`.small-movie-card__link`);
 
-    // expect(component.find(`.small-movie-card__link`)).toBe(1);
-
-    // movieTitles.forEach((title) => title.simulate(`click`, mockEvent));
-
-    movieTitles.at(0).simulate(`click`, mockEvent);
-
-    // expect(movieTitles.simulate(`click`, mockEvent)).toHaveBeenCalledTimes(movies.length);
+    movieTitles.simulate(`click`, mockEvent);
 
     expect(onCardTitleClick.mock.calls[0][0]).toEqual(mockData);
   });

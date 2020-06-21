@@ -28,12 +28,6 @@ describe(`MovieCard Component`, () => {
     };
 
     component.find(`article.small-movie-card`).simulate(`mouseover`, mockEvent);
-
-    // expect(onMovieCardHover).toHaveBeenCalledTimes(1);
-
-    // onMovieCardHover.mockImplementation(() => card.id);
-    //
-    // expect(onMovieCardHover()).toBe(`2`);
   });
 
   it(`check title click`, () => {
