@@ -6,7 +6,7 @@ const MovieDetail = (props) => {
     id,
     name,
     genre,
-    preview_image: preview,
+    preview,
     description,
     rating,
     scores_count: count,
@@ -177,8 +177,7 @@ MovieDetail.propTypes = {
     id: PropTypes.string,
     name: PropTypes.string,
     genre: PropTypes.string,
-    // eslint-disable-next-line camelcase
-    preview_image: PropTypes.string,
+    preview: PropTypes.string,
     description: PropTypes.string,
     rating: PropTypes.number,
     // eslint-disable-next-line camelcase

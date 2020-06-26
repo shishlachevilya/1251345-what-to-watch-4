@@ -263,7 +263,8 @@ Array [
           <article
             className="small-movie-card catalog__movies-card"
             id="1"
-            onMouseOver={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
             <a
               href="/detail"
@@ -273,10 +274,17 @@ Array [
                 className="small-movie-card__image"
                 onClick={[Function]}
               >
-                <img
+                <video
                   height="175"
+                  loop={true}
+                  muted="off"
+                  preload="none"
                   width="280"
-                />
+                >
+                  <source
+                    type="video/mp4"
+                  />
+                </video>
               </div>
             </a>
             <h3
@@ -293,7 +301,8 @@ Array [
           <article
             className="small-movie-card catalog__movies-card"
             id="2"
-            onMouseOver={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
             <a
               href="/detail"
@@ -303,10 +312,17 @@ Array [
                 className="small-movie-card__image"
                 onClick={[Function]}
               >
-                <img
+                <video
                   height="175"
+                  loop={true}
+                  muted="off"
+                  preload="none"
                   width="280"
-                />
+                >
+                  <source
+                    type="video/mp4"
+                  />
+                </video>
               </div>
             </a>
             <h3
@@ -323,7 +339,8 @@ Array [
           <article
             className="small-movie-card catalog__movies-card"
             id="3"
-            onMouseOver={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
             <a
               href="/detail"
@@ -333,10 +350,17 @@ Array [
                 className="small-movie-card__image"
                 onClick={[Function]}
               >
-                <img
+                <video
                   height="175"
+                  loop={true}
+                  muted="off"
+                  preload="none"
                   width="280"
-                />
+                >
+                  <source
+                    type="video/mp4"
+                  />
+                </video>
               </div>
             </a>
             <h3
@@ -353,7 +377,8 @@ Array [
           <article
             className="small-movie-card catalog__movies-card"
             id="4"
-            onMouseOver={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
             <a
               href="/detail"
@@ -363,10 +388,17 @@ Array [
                 className="small-movie-card__image"
                 onClick={[Function]}
               >
-                <img
+                <video
                   height="175"
+                  loop={true}
+                  muted="off"
+                  preload="none"
                   width="280"
-                />
+                >
+                  <source
+                    type="video/mp4"
+                  />
+                </video>
               </div>
             </a>
             <h3
@@ -383,7 +415,8 @@ Array [
           <article
             className="small-movie-card catalog__movies-card"
             id="5"
-            onMouseOver={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
             <a
               href="/detail"
@@ -393,10 +426,17 @@ Array [
                 className="small-movie-card__image"
                 onClick={[Function]}
               >
-                <img
+                <video
                   height="175"
+                  loop={true}
+                  muted="off"
+                  preload="none"
                   width="280"
-                />
+                >
+                  <source
+                    type="video/mp4"
+                  />
+                </video>
               </div>
             </a>
             <h3
@@ -413,7 +453,8 @@ Array [
           <article
             className="small-movie-card catalog__movies-card"
             id="6"
-            onMouseOver={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
             <a
               href="/detail"
@@ -423,10 +464,17 @@ Array [
                 className="small-movie-card__image"
                 onClick={[Function]}
               >
-                <img
+                <video
                   height="175"
+                  loop={true}
+                  muted="off"
+                  preload="none"
                   width="280"
-                />
+                >
+                  <source
+                    type="video/mp4"
+                  />
+                </video>
               </div>
             </a>
             <h3
@@ -443,7 +491,8 @@ Array [
           <article
             className="small-movie-card catalog__movies-card"
             id="7"
-            onMouseOver={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
             <a
               href="/detail"
@@ -453,10 +502,17 @@ Array [
                 className="small-movie-card__image"
                 onClick={[Function]}
               >
-                <img
+                <video
                   height="175"
+                  loop={true}
+                  muted="off"
+                  preload="none"
                   width="280"
-                />
+                >
+                  <source
+                    type="video/mp4"
+                  />
+                </video>
               </div>
             </a>
             <h3
@@ -473,7 +529,8 @@ Array [
           <article
             className="small-movie-card catalog__movies-card"
             id="8"
-            onMouseOver={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
           >
             <a
               href="/detail"
@@ -483,10 +540,17 @@ Array [
                 className="small-movie-card__image"
                 onClick={[Function]}
               >
-                <img
+                <video
                   height="175"
+                  loop={true}
+                  muted="off"
+                  preload="none"
                   width="280"
-                />
+                >
+                  <source
+                    type="video/mp4"
+                  />
+                </video>
               </div>
             </a>
             <h3

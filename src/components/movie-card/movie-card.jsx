@@ -1,25 +1,30 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
+import MoviePlayer from "../movie-player/movie-player";
 
 const MovieCard = (props) => {
   const {
     card,
     onMouseOver,
-    onCardTitleClick
+    onMouseLeave,
+    onCardTitleClick,
+    isHover,
   } = props;
 
   const {
     id,
     name,
-    preview_image: preview
+    video,
+    preview,
   } = card;
 
   return (
     <article
       id={id}
       className="small-movie-card catalog__movies-card"
-      onMouseOver={() => onMouseOver(id)}
+      onMouseEnter={onMouseOver}
+      onMouseLeave={onMouseLeave}
     >
       <Link
         to="/detail"
@@ -28,31 +33,41 @@ const MovieCard = (props) => {
           className="small-movie-card__image"
           onClick={() => onCardTitleClick(card)}
         >
-          <img src={preview} alt={name} width="280" height="175"/>
+          <MoviePlayer video={video} poster={preview} isHover={isHover}/>
         </div>
       </Link>
-      <h3
-        className="small-movie-card__title"
-        onClick={(e) => {
-          e.preventDefault();
-          onCardTitleClick(card);
-        }}
-      >
-        <Link
-          to="/detail"
-          className="small-movie-card__link"
+
+      {!isHover && (
+        <h3
+          className="small-movie-card__title"
+          onClick={(e) => {
+            e.preventDefault();
+            onCardTitleClick(card);
+          }}
         >
-          {name}
-        </Link>
-      </h3>
+          <Link
+            to="/detail"
+            className="small-movie-card__link"
+          >
+            {name}
+          </Link>
+        </h3>
+      )}
     </article>
   );
 };
 
 MovieCard.propTypes = {
-  card: PropTypes.object.isRequired,
+  card: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    video: PropTypes.string.isRequired,
+    preview: PropTypes.string.isRequired
+  }),
   onMouseOver: PropTypes.func.isRequired,
-  onCardTitleClick: PropTypes.func.isRequired
+  onMouseLeave: PropTypes.func.isRequired,
+  onCardTitleClick: PropTypes.func.isRequired,
+  isHover: PropTypes.bool.isRequired,
 };
 
 export default MovieCard;
