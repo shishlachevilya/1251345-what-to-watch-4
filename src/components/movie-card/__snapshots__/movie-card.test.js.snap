@@ -4,7 +4,8 @@ exports[`MovieCard component test renders correctly 1`] = `
 <article
   className="small-movie-card catalog__movies-card"
   id="1"
-  onMouseOver={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
 >
   <a
     href="/detail"
@@ -14,10 +15,19 @@ exports[`MovieCard component test renders correctly 1`] = `
       className="small-movie-card__image"
       onClick={[Function]}
     >
-      <img
+      <video
         height="175"
+        loop={true}
+        muted="off"
+        poster="img/bg-the-grand-budapest-hotel.jpg"
+        preload="none"
         width="280"
-      />
+      >
+        <source
+          src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+          type="video/mp4"
+        />
+      </video>
     </div>
   </a>
   <h3
@@ -28,7 +38,9 @@ exports[`MovieCard component test renders correctly 1`] = `
       className="small-movie-card__link"
       href="/detail"
       onClick={[Function]}
-    />
+    >
+      The Grand Budapest Hotel
+    </a>
   </h3>
 </article>
 `;

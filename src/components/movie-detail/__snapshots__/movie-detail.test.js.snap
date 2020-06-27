@@ -148,7 +148,6 @@ exports[`MovieDetail component test component should renders correctly 1`] = `
           <img
             alt="We need to talk about Kevin"
             height="327"
-            src="img/we-need-to-talk-about-kevin.jpg"
             width="218"
           />
         </div>

@@ -1,9 +1,9 @@
 export default [
   {
-    "id": 1,
+    "id": `1`,
     "name": `The Grand Budapest Hotel`,
-    "poster_image": `bg-the-grand-budapest-hotel-poster.jpg`,
-    "preview_image": `img/bg-the-grand-budapest-hotel.jpg`,
+    "poster": `bg-the-grand-budapest-hotel-poster.jpg`,
+    "preview": `img/bg-the-grand-budapest-hotel.jpg`,
     "background_image": `img/the-grand-budapest-hotel-bg.jpg`,
     "background_color": `#ffffff`,
     "video_link": `https://some-link`,
@@ -16,13 +16,14 @@ export default [
     "run_time": 99,
     "genre": `Comedy`,
     "released": 2014,
-    "is_favorite": false
+    "is_favorite": false,
+    "video": `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`
   },
   {
     "id": `2`,
     "name": `Bohemian Rhapsody`,
-    "poster_image": `img/bohemian-rhapsody-poster.jpg`,
-    "preview_image": `img/bohemian-rhapsody.jpg`,
+    "poster": `img/bohemian-rhapsody-poster.jpg`,
+    "preview": `img/bohemian-rhapsody.jpg`,
     "background_image": `img/the-grand-budapest-hotel-bg.jpg`,
     "background_color": `#ffffff`,
     "video_link": `https://some-link`,
@@ -35,13 +36,14 @@ export default [
     "run_time": 99,
     "genre": `Comedy`,
     "released": 2014,
-    "is_favorite": false
+    "is_favorite": false,
+    "video": `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`
   },
   {
     "id": `3`,
     "name": `Macbeth`,
-    "poster_image": `img/macbeth-poster.jpg`,
-    "preview_image": `img/macbeth.jpg`,
+    "poster": `img/macbeth-poster.jpg`,
+    "preview": `img/macbeth.jpg`,
     "background_image": `img/the-grand-budapest-hotel-bg.jpg`,
     "background_color": `#ffffff`,
     "video_link": `https://some-link`,
@@ -54,13 +56,14 @@ export default [
     "run_time": 99,
     "genre": `Comedy`,
     "released": 2014,
-    "is_favorite": false
+    "is_favorite": false,
+    "video": `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`
   },
   {
     "id": `4`,
     "name": `Aviator`,
-    "poster_image": `img/aviator-poster.jpg`,
-    "preview_image": `img/aviator.jpg`,
+    "poster": `img/aviator-poster.jpg`,
+    "preview": `img/aviator.jpg`,
     "background_image": `img/the-grand-budapest-hotel-bg.jpg`,
     "background_color": `#ffffff`,
     "video_link": `https://some-link`,
@@ -73,13 +76,14 @@ export default [
     "run_time": 99,
     "genre": `Comedy`,
     "released": 2014,
-    "is_favorite": false
+    "is_favorite": false,
+    "video": `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`
   },
   {
     "id": `5`,
     "name": `We need to talk about Kevin`,
-    "poster_image": `img/we-need-to-talk-about-kevin-poster.jpg`,
-    "preview_image": `img/we-need-to-talk-about-kevin.jpg`,
+    "poster": `img/we-need-to-talk-about-kevin-poster.jpg`,
+    "preview": `img/we-need-to-talk-about-kevin.jpg`,
     "background_image": `img/the-grand-budapest-hotel-bg.jpg`,
     "background_color": `#ffffff`,
     "video_link": `https://some-link`,
@@ -92,13 +96,14 @@ export default [
     "run_time": 99,
     "genre": `Comedy`,
     "released": 2014,
-    "is_favorite": false
+    "is_favorite": false,
+    "video": `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`
   },
   {
     "id": `6`,
     "name": `Snatch`,
-    "poster_image": `mg/snatch-poster.jpg`,
-    "preview_image": `img/snatch.jpg`,
+    "poster": `mg/snatch-poster.jpg`,
+    "preview": `img/snatch.jpg`,
     "background_image": `img/snatch.jpg`,
     "background_color": `#ffffff`,
     "video_link": `https://some-link`,
@@ -111,13 +116,14 @@ export default [
     "run_time": 99,
     "genre": `Comedy`,
     "released": 2014,
-    "is_favorite": false
+    "is_favorite": false,
+    "video": `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`
   },
   {
     "id": `7`,
     "name": `Revenant`,
-    "poster_image": `img/revenant-poster.jpg`,
-    "preview_image": `img/revenant.jpg`,
+    "poster": `img/revenant-poster.jpg`,
+    "preview": `img/revenant.jpg`,
     "background_image": `img/the-grand-budapest-hotel-bg.jpg`,
     "background_color": `#ffffff`,
     "video_link": `https://some-link`,
@@ -130,13 +136,14 @@ export default [
     "run_time": 99,
     "genre": `Comedy`,
     "released": 2014,
-    "is_favorite": false
+    "is_favorite": false,
+    "video": `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`
   },
   {
     "id": `8`,
     "name": `Johnny English`,
-    "poster_image": `img/johnny-english-poster.jpg`,
-    "preview_image": `img/johnny-english.jpg`,
+    "poster": `img/johnny-english-poster.jpg`,
+    "preview": `img/johnny-english.jpg`,
     "background_image": `img/the-grand-budapest-hotel-bg.jpg`,
     "background_color": `#ffffff`,
     "video_link": `https://some-link`,
@@ -149,6 +156,7 @@ export default [
     "run_time": 99,
     "genre": `Comedy`,
     "released": 2014,
-    "is_favorite": false
+    "is_favorite": false,
+    "video": `https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`
   }
 ];

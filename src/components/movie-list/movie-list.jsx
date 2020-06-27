@@ -1,47 +1,33 @@
-import React, {PureComponent} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import MovieCard from "../movie-card/movie-card";
+import withPlayer from "../../hocs/withPlayer";
 
-class MovieList extends PureComponent {
-  constructor(props) {
-    super(props);
+const Card = withPlayer(MovieCard);
 
-    this.state = {
-      activeCardId: null
-    };
+const MovieList = (props) => {
+  const {movies, onCardTitleClick} = props;
 
-    this.handlerCardMouseOver = this.handlerCardMouseOver.bind(this);
-  }
+  return (
+    <div className="catalog__movies-list">
+      {movies.map((movie) => {
+        const {id} = movie;
 
-  handlerCardMouseOver(id) {
-    this.setState({activeCardId: id});
-  }
-
-  render() {
-    const {movies, onCardTitleClick} = this.props;
-
-    return (
-      <div className="catalog__movies-list">
-        {movies.map((movie) => {
-          const {id} = movie;
-
-          return (
-            <MovieCard
-              key={id}
-              card={movie}
-              onMouseOver={this.handlerCardMouseOver}
-              onCardTitleClick={onCardTitleClick}
-            />
-          );
-        })}
-      </div>
-    );
-  }
-}
+        return (
+          <Card
+            key={id}
+            card={movie}
+            onCardTitleClick={onCardTitleClick}
+          />
+        );
+      })}
+    </div>
+  );
+};
 
 MovieList.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onCardTitleClick: PropTypes.func.isRequired
+  onCardTitleClick: PropTypes.func.isRequired,
 };
 
 export default MovieList;
