@@ -5,6 +5,8 @@ import TabNav from "../tab-nav/tab-nav";
 import TabDetails from "../tab-details/tab-details";
 import TabOverview from "../tab-overview/tab-overview";
 import TabReviews from "../tab-reviews/tab-reviews";
+import movies from "../../mocks/movies";
+import MovieList from "../movie-list/movie-list";
 
 class MovieDetail extends React.PureComponent {
   constructor(props) {
@@ -15,6 +17,7 @@ class MovieDetail extends React.PureComponent {
     };
 
     this.handlerChangeActiveTab = this.handlerChangeActiveTab.bind(this);
+    this.getMoreLikeThisMovies = this.getMoreLikeThisMovies.bind(this);
   }
 
   handlerChangeActiveTab(label) {
@@ -34,6 +37,17 @@ class MovieDetail extends React.PureComponent {
     }
   }
 
+  getMoreLikeThisMovies() {
+    const {
+      activeMovie: {
+        id,
+        genre
+      }
+    } = this.props;
+
+    return movies.filter((movie) => movie.id !== id && movie.genre === genre).slice(0, 4);
+  }
+
   render() {
     const {
       activeMovie: {
@@ -42,7 +56,8 @@ class MovieDetail extends React.PureComponent {
         genre,
         preview,
         release
-      }
+      },
+      onCardTitleClick
     } = this.props;
 
     const {activeTab} = this.state;
@@ -120,49 +135,16 @@ class MovieDetail extends React.PureComponent {
         </section>
 
         <div className="page-content">
-          <section className="catalog catalog--like-this">
-            <h2 className="catalog__title">More like this</h2>
+          {this.getMoreLikeThisMovies().length > 0 && (
+            <section className="catalog catalog--like-this">
+              <h2 className="catalog__title">More like this</h2>
 
-            <div className="catalog__movies-list">
-              <article className="small-movie-card catalog__movies-card">
-                <div className="small-movie-card__image">
-                  <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
-                    alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175"/>
-                </div>
-                <h3 className="small-movie-card__title">
-                  <a className="small-movie-card__link" href="movie-page.html">Fantastic Beasts: The Crimes of
-                    Grindelwald</a>
-                </h3>
-              </article>
-
-              <article className="small-movie-card catalog__movies-card">
-                <div className="small-movie-card__image">
-                  <img src="img/bohemian-rhapsody.jpg" alt="Bohemian Rhapsody" width="280" height="175"/>
-                </div>
-                <h3 className="small-movie-card__title">
-                  <a className="small-movie-card__link" href="movie-page.html">Bohemian Rhapsody</a>
-                </h3>
-              </article>
-
-              <article className="small-movie-card catalog__movies-card">
-                <div className="small-movie-card__image">
-                  <img src="img/macbeth.jpg" alt="Macbeth" width="280" height="175"/>
-                </div>
-                <h3 className="small-movie-card__title">
-                  <a className="small-movie-card__link" href="movie-page.html">Macbeth</a>
-                </h3>
-              </article>
-
-              <article className="small-movie-card catalog__movies-card">
-                <div className="small-movie-card__image">
-                  <img src="img/aviator.jpg" alt="Aviator" width="280" height="175"/>
-                </div>
-                <h3 className="small-movie-card__title">
-                  <a className="small-movie-card__link" href="movie-page.html">Aviator</a>
-                </h3>
-              </article>
-            </div>
-          </section>
+              <MovieList
+                movies={this.getMoreLikeThisMovies()}
+                onCardTitleClick={onCardTitleClick}
+              />
+            </section>
+          )}
 
           <footer className="page-footer">
             <div className="logo">
@@ -190,11 +172,13 @@ MovieDetail.propTypes = {
     genre: PropTypes.string,
     preview: PropTypes.string,
     release: PropTypes.number
-  })
+  }),
+  onCardTitleClick: PropTypes.func
 };
 
 MovieDetail.defaultProps = {
-  activeMovieCard: {}
+  activeMovieCard: {},
+  onCardTitleClick: () => {}
 };
 
 export default MovieDetail;

@@ -33,7 +33,10 @@ class App extends React.PureComponent {
             />
           </Route>
           <Route path="/detail">
-            <MovieDetail activeMovie={activeMovie}/>
+            <MovieDetail
+              activeMovie={activeMovie}
+              onCardTitleClick={this.onCardTitleClick}
+            />
           </Route>
         </Switch>
       </BrowserRouter>
