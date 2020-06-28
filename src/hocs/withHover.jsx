@@ -1,6 +1,6 @@
 import React from "react";
 
-const withPlayer = (Component) => {
+const withHover = (Component) => {
   return class WithPlayer extends React.PureComponent {
     constructor(props) {
       super(props);
@@ -45,4 +45,4 @@ const withPlayer = (Component) => {
   };
 };
 
-export default withPlayer;
+export default withHover;

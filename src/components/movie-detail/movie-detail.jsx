@@ -177,7 +177,7 @@ MovieDetail.propTypes = {
 };
 
 MovieDetail.defaultProps = {
-  activeMovieCard: {},
+  activeMovie: {},
   onCardTitleClick: () => {}
 };
 

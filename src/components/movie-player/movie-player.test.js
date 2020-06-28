@@ -7,7 +7,7 @@ describe(`MoviePlayer component test`, () => {
     const tree = renderer
     .create(
         <MoviePlayer
-          video={`https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`}
+          videoPrev={`https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`}
           poster={`bg-the-grand-budapest-hotel-poster.jpg`}
           isHover={true}
         />

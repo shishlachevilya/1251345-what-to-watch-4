@@ -11,7 +11,7 @@ describe(`Movie player component`, () => {
   it(`should start play after 1s`, () => {
     const wrapper = mount(
         <MoviePlayer
-          video={`https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`}
+          videoPrev={`https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4`}
           poster={`bg-the-grand-budapest-hotel-poster.jpg`}
           isHover={false}
         />

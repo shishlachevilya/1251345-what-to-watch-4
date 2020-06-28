@@ -58,10 +58,10 @@ const MovieCard = (props) => {
 };
 
 MovieCard.propTypes = {
-  card: PropTypes.shape({
+  movie: PropTypes.shape({
     id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    video: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    videoPrev: PropTypes.string.isRequired,
     preview: PropTypes.string.isRequired
   }),
   onMouseOver: PropTypes.func.isRequired,

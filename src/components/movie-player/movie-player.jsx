@@ -19,7 +19,8 @@ class MoviePlayer extends React.PureComponent {
   }
 
   render() {
-    const {video, poster} = this.props;
+    const {videoPrev, poster} = this.props;
+
     return (
       <video
         ref={this.player}
@@ -30,17 +31,22 @@ class MoviePlayer extends React.PureComponent {
         loop = {true}
         preload="none"
       >
-        <source src={video} type="video/mp4"/>
+        <source src={videoPrev} type="video/mp4"/>
       </video>
     );
   }
 }
 
 MoviePlayer.propTypes = {
-  video: PropTypes.string.isRequired,
-  poster: PropTypes.string.isRequired,
-  isHover: PropTypes.bool.isRequired
+  videoPrev: PropTypes.string,
+  poster: PropTypes.string,
+  isHover: PropTypes.bool
 };
 
+MoviePlayer.defaultProps = {
+  videoPrev: ``,
+  poster: ``,
+  isHover: false
+};
 
 export default MoviePlayer;

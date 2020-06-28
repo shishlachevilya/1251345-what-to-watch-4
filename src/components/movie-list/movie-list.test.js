@@ -1,5 +1,5 @@
 import React from "react";
-import renderer from 'react-test-renderer';
+import renderer from "react-test-renderer";
 import MovieList from "./movie-list";
 import {BrowserRouter as Router} from "react-router-dom";
 

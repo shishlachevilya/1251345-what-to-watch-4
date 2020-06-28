@@ -278,10 +278,12 @@ Array [
                   height="175"
                   loop={true}
                   muted="off"
+                  poster="img/mindhunter.jpg"
                   preload="none"
                   width="280"
                 >
                   <source
+                    src=""
                     type="video/mp4"
                   />
                 </video>
@@ -295,7 +297,9 @@ Array [
                 className="small-movie-card__link"
                 href="/detail"
                 onClick={[Function]}
-              />
+              >
+                Mindhunter
+              </a>
             </h3>
           </article>
           <article
@@ -316,10 +320,12 @@ Array [
                   height="175"
                   loop={true}
                   muted="off"
+                  poster="img/orlando.jpg"
                   preload="none"
                   width="280"
                 >
                   <source
+                    src=""
                     type="video/mp4"
                   />
                 </video>
@@ -333,7 +339,9 @@ Array [
                 className="small-movie-card__link"
                 href="/detail"
                 onClick={[Function]}
-              />
+              >
+                Orlando
+              </a>
             </h3>
           </article>
           <article
@@ -354,10 +362,12 @@ Array [
                   height="175"
                   loop={true}
                   muted="off"
+                  poster="img/dardjeeling-limited.jpg"
                   preload="none"
                   width="280"
                 >
                   <source
+                    src=""
                     type="video/mp4"
                   />
                 </video>
@@ -371,7 +381,9 @@ Array [
                 className="small-movie-card__link"
                 href="/detail"
                 onClick={[Function]}
-              />
+              >
+                Dardjeeling Limited
+              </a>
             </h3>
           </article>
           <article
@@ -392,10 +404,12 @@ Array [
                   height="175"
                   loop={true}
                   muted="off"
+                  poster="img/midnight-special.jpg"
                   preload="none"
                   width="280"
                 >
                   <source
+                    src=""
                     type="video/mp4"
                   />
                 </video>
@@ -408,160 +422,10 @@ Array [
               <a
                 className="small-movie-card__link"
                 href="/detail"
-                onClick={[Function]}
-              />
-            </h3>
-          </article>
-          <article
-            className="small-movie-card catalog__movies-card"
-            id="5"
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-          >
-            <a
-              href="/detail"
-              onClick={[Function]}
-            >
-              <div
-                className="small-movie-card__image"
                 onClick={[Function]}
               >
-                <video
-                  height="175"
-                  loop={true}
-                  muted="off"
-                  preload="none"
-                  width="280"
-                >
-                  <source
-                    type="video/mp4"
-                  />
-                </video>
-              </div>
-            </a>
-            <h3
-              className="small-movie-card__title"
-              onClick={[Function]}
-            >
-              <a
-                className="small-movie-card__link"
-                href="/detail"
-                onClick={[Function]}
-              />
-            </h3>
-          </article>
-          <article
-            className="small-movie-card catalog__movies-card"
-            id="6"
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-          >
-            <a
-              href="/detail"
-              onClick={[Function]}
-            >
-              <div
-                className="small-movie-card__image"
-                onClick={[Function]}
-              >
-                <video
-                  height="175"
-                  loop={true}
-                  muted="off"
-                  preload="none"
-                  width="280"
-                >
-                  <source
-                    type="video/mp4"
-                  />
-                </video>
-              </div>
-            </a>
-            <h3
-              className="small-movie-card__title"
-              onClick={[Function]}
-            >
-              <a
-                className="small-movie-card__link"
-                href="/detail"
-                onClick={[Function]}
-              />
-            </h3>
-          </article>
-          <article
-            className="small-movie-card catalog__movies-card"
-            id="7"
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-          >
-            <a
-              href="/detail"
-              onClick={[Function]}
-            >
-              <div
-                className="small-movie-card__image"
-                onClick={[Function]}
-              >
-                <video
-                  height="175"
-                  loop={true}
-                  muted="off"
-                  preload="none"
-                  width="280"
-                >
-                  <source
-                    type="video/mp4"
-                  />
-                </video>
-              </div>
-            </a>
-            <h3
-              className="small-movie-card__title"
-              onClick={[Function]}
-            >
-              <a
-                className="small-movie-card__link"
-                href="/detail"
-                onClick={[Function]}
-              />
-            </h3>
-          </article>
-          <article
-            className="small-movie-card catalog__movies-card"
-            id="8"
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-          >
-            <a
-              href="/detail"
-              onClick={[Function]}
-            >
-              <div
-                className="small-movie-card__image"
-                onClick={[Function]}
-              >
-                <video
-                  height="175"
-                  loop={true}
-                  muted="off"
-                  preload="none"
-                  width="280"
-                >
-                  <source
-                    type="video/mp4"
-                  />
-                </video>
-              </div>
-            </a>
-            <h3
-              className="small-movie-card__title"
-              onClick={[Function]}
-            >
-              <a
-                className="small-movie-card__link"
-                href="/detail"
-                onClick={[Function]}
-              />
+                Midnight Special
+              </a>
             </h3>
           </article>
         </div>

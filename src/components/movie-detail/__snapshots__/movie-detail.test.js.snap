@@ -4,7 +4,7 @@ exports[`MovieDetail component test component should renders correctly 1`] = `
 <div>
   <section
     className="movie-card movie-card--full"
-    id="5"
+    id="1"
   >
     <div
       className="movie-card__hero"
@@ -73,7 +73,7 @@ exports[`MovieDetail component test component should renders correctly 1`] = `
           <h2
             className="movie-card__title"
           >
-            We need to talk about Kevin
+            Mindhunter
           </h2>
           <p
             className="movie-card__meta"
@@ -81,12 +81,12 @@ exports[`MovieDetail component test component should renders correctly 1`] = `
             <span
               className="movie-card__genre"
             >
-              Comedy
+              Thriller
             </span>
             <span
               className="movie-card__year"
             >
-              2014
+              2016
             </span>
           </p>
           <div
@@ -146,8 +146,9 @@ exports[`MovieDetail component test component should renders correctly 1`] = `
           className="movie-card__poster movie-card__poster--big"
         >
           <img
-            alt="We need to talk about Kevin"
+            alt=""
             height="327"
+            src="img/mindhunter.jpg"
             width="218"
           />
         </div>
@@ -166,26 +167,29 @@ exports[`MovieDetail component test component should renders correctly 1`] = `
                 <a
                   className="movie-nav__link"
                   href="#"
+                  onClick={[Function]}
                 >
                   Overview
                 </a>
               </li>
               <li
-                className="movie-nav__item"
+                className="movie-nav__item "
               >
                 <a
                   className="movie-nav__link"
                   href="#"
+                  onClick={[Function]}
                 >
                   Details
                 </a>
               </li>
               <li
-                className="movie-nav__item"
+                className="movie-nav__item "
               >
                 <a
                   className="movie-nav__link"
                   href="#"
+                  onClick={[Function]}
                 >
                   Reviews
                 </a>
@@ -198,7 +202,7 @@ exports[`MovieDetail component test component should renders correctly 1`] = `
             <div
               className="movie-rating__score"
             >
-              1.2
+              10
             </div>
             <p
               className="movie-rating__meta"
@@ -206,12 +210,12 @@ exports[`MovieDetail component test component should renders correctly 1`] = `
               <span
                 className="movie-rating__level"
               >
-                Very good
+                Awesome
               </span>
               <span
                 className="movie-rating__count"
               >
-                240
+                32
                  ratings
               </span>
             </p>
@@ -220,24 +224,7 @@ exports[`MovieDetail component test component should renders correctly 1`] = `
             className="movie-card__text"
           >
             <p>
-              In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave's friend and protege.
-            </p>
-            <p
-              className="movie-card__director"
-            >
-              <strong>
-                Director: 
-                Wes Andreson
-              </strong>
-            </p>
-            <p
-              className="movie-card__starring"
-            >
-              <strong>
-                Starring: 
-                Bill Murray, Edward Norton, Jude Law, Willem Dafoe, Saoirse Ronan
-                 and other
-              </strong>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius quis lorem id iaculis. Sed eget luctus orci. Donec cursus lectus auctor quam tempus ultricies. Nullam at aliquam massa. Donec mollis quis urna eget condimentum. Mauris at dictum ante. Phasellus maximus massa augue, ut luctus dolor rutrum et. Aliquam faucibus turpis lectus, sed hendrerit dolor malesuada at.
             </p>
           </div>
         </div>
@@ -260,97 +247,43 @@ exports[`MovieDetail component test component should renders correctly 1`] = `
       >
         <article
           className="small-movie-card catalog__movies-card"
+          id="3"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
         >
-          <div
-            className="small-movie-card__image"
+          <a
+            href="/detail"
+            onClick={[Function]}
           >
-            <img
-              alt="Fantastic Beasts: The Crimes of Grindelwald"
-              height="175"
-              src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
-              width="280"
-            />
-          </div>
+            <div
+              className="small-movie-card__image"
+              onClick={[Function]}
+            >
+              <video
+                height="175"
+                loop={true}
+                muted="off"
+                poster="img/dardjeeling-limited.jpg"
+                preload="none"
+                width="280"
+              >
+                <source
+                  src=""
+                  type="video/mp4"
+                />
+              </video>
+            </div>
+          </a>
           <h3
             className="small-movie-card__title"
+            onClick={[Function]}
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="/detail"
+              onClick={[Function]}
             >
-              Fantastic Beasts: The Crimes of Grindelwald
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <img
-              alt="Bohemian Rhapsody"
-              height="175"
-              src="img/bohemian-rhapsody.jpg"
-              width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="movie-page.html"
-            >
-              Bohemian Rhapsody
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <img
-              alt="Macbeth"
-              height="175"
-              src="img/macbeth.jpg"
-              width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="movie-page.html"
-            >
-              Macbeth
-            </a>
-          </h3>
-        </article>
-        <article
-          className="small-movie-card catalog__movies-card"
-        >
-          <div
-            className="small-movie-card__image"
-          >
-            <img
-              alt="Aviator"
-              height="175"
-              src="img/aviator.jpg"
-              width="280"
-            />
-          </div>
-          <h3
-            className="small-movie-card__title"
-          >
-            <a
-              className="small-movie-card__link"
-              href="movie-page.html"
-            >
-              Aviator
+              Dardjeeling Limited
             </a>
           </h3>
         </article>
