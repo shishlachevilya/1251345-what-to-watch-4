@@ -16,7 +16,7 @@ const MovieList = (props) => {
         return (
           <Card
             key={id}
-            card={movie}
+            movie={movie}
             onCardTitleClick={onCardTitleClick}
           />
         );
