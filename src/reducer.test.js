@@ -314,7 +314,7 @@ const movies = [
       },
     ]
   },
-]
+];
 
 const genreList = [
   `All genres`,
