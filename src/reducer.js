@@ -1,18 +1,18 @@
-import {GET_ALL_MOVIES, GET_MOVIE_BY_GENRE, GET_GENRE_LIST} from "./constants";
+import {GET_MOVIE_BY_GENRE, GET_GENRE_LIST} from "./constants";
 import {extend} from "./helpers";
 
 const initialState = {
   genreList: [
     `All genres`,
-    `Comedy`,
+    `Comedies`,
     `Crime`,
     `Documentary`,
-    `Drama`,
+    `Dramas`,
     `Horror`,
     `Kids & Family`,
-    `Family`,
+    `Romance`,
     `Sci-Fi`,
-    `Thriller`
+    `Thrillers`
   ],
   currentGenreItem: `All genres`,
   movies: [
@@ -23,7 +23,7 @@ const initialState = {
       preview: `img/mindhunter.jpg`,
       poster: `img/mindhunter.jpg`,
       background: `img/mindhunter.jpg`,
-      genre: `Thriller`,
+      genre: `Thrillers`,
       description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius quis lorem id iaculis. Sed eget luctus orci. Donec cursus lectus auctor quam tempus ultricies. Nullam at aliquam massa. Donec mollis quis urna eget condimentum. Mauris at dictum ante. Phasellus maximus massa augue, ut luctus dolor rutrum et. Aliquam faucibus turpis lectus, sed hendrerit dolor malesuada at.`,
       rating: 10.0,
       votes: 32,
@@ -77,7 +77,7 @@ const initialState = {
       preview: `img/orlando.jpg`,
       poster: `img/orlando.jpg`,
       background: `img/orlando.jpg`,
-      genre: `Comedy`,
+      genre: `Comedies`,
       description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius quis lorem id iaculis. Sed eget luctus orci. Donec cursus lectus auctor quam tempus ultricies. Nullam at aliquam massa. Donec mollis quis urna eget condimentum. Mauris at dictum ante. Phasellus maximus massa augue, ut luctus dolor rutrum et. Aliquam faucibus turpis lectus, sed hendrerit dolor malesuada at.`,
       rating: 9.7,
       votes: 124,
@@ -118,7 +118,7 @@ const initialState = {
       preview: `img/dardjeeling-limited.jpg`,
       poster: `img/dardjeeling-limited.jpg`,
       background: `img/dardjeeling-limited.jpg`,
-      genre: `Thriller`,
+      genre: `Thrillers`,
       description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius quis lorem id iaculis. Sed eget luctus orci. Donec cursus lectus auctor quam tempus ultricies. Nullam at aliquam massa. Donec mollis quis urna eget condimentum. Mauris at dictum ante. Phasellus maximus massa augue, ut luctus dolor rutrum et. Aliquam faucibus turpis lectus, sed hendrerit dolor malesuada at.`,
       rating: 8.0,
       votes: 170,
@@ -190,7 +190,7 @@ const initialState = {
       preview: `img/seven-years-in-tibet.jpg`,
       poster: `img/seven-years-in-tibet.jpg`,
       background: `img/seven-years-in-tibet.jpg`,
-      genre: `Family`,
+      genre: `Kids & Family`,
       description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius quis lorem id iaculis. Sed eget luctus orci. Donec cursus lectus auctor quam tempus ultricies. Nullam at aliquam massa. Donec mollis quis urna eget condimentum. Mauris at dictum ante. Phasellus maximus massa augue, ut luctus dolor rutrum et. Aliquam faucibus turpis lectus, sed hendrerit dolor malesuada at.`,
       rating: 5.0,
       votes: 1255,
@@ -262,7 +262,7 @@ const initialState = {
       preview: `img/snatch.jpg`,
       poster: `img/snatch.jpg`,
       background: `img/snatch.jpg`,
-      genre: `Comedy`,
+      genre: `Comedies`,
       description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius quis lorem id iaculis. Sed eget luctus orci. Donec cursus lectus auctor quam tempus ultricies. Nullam at aliquam massa. Donec mollis quis urna eget condimentum. Mauris at dictum ante. Phasellus maximus massa augue, ut luctus dolor rutrum et. Aliquam faucibus turpis lectus, sed hendrerit dolor malesuada at.`,
       rating: 3.0,
       votes: 22,
@@ -298,7 +298,7 @@ const initialState = {
       preview: `img/pulp-fiction.jpg`,
       poster: `img/pulp-fiction.jpg`,
       background: `img/pulp-fiction.jpg`,
-      genre: `Drama`,
+      genre: `Dramas`,
       description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius quis lorem id iaculis. Sed eget luctus orci. Donec cursus lectus auctor quam tempus ultricies. Nullam at aliquam massa. Donec mollis quis urna eget condimentum. Mauris at dictum ante. Phasellus maximus massa augue, ut luctus dolor rutrum et. Aliquam faucibus turpis lectus, sed hendrerit dolor malesuada at.`,
       rating: 2.3,
       votes: 293,
@@ -338,23 +338,9 @@ export const reducer = (state = initialState, action) => {
         genreList: state.genreList
       });
 
-    case GET_ALL_MOVIES:
-      return extend(state, {
-        movies: state.movies
-      });
-
     case GET_MOVIE_BY_GENRE:
-      const movieByGenre = state.movies.filter((movie) => {
-        if (action.payload.toLowerCase() !== `all genres`) {
-          return movie.genre.toLowerCase() === action.payload.toLowerCase();
-        }
-
-        return movie;
-      });
-
       return extend(state, {
         currentGenreItem: action.payload,
-        movies: movieByGenre
       });
 
     default:

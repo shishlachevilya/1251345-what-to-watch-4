@@ -14,6 +14,16 @@ const Main = (props) => {
     onGenreItemClick
   } = props;
 
+  const filterMoviesByGenre = (movieArray) => {
+    return movieArray.filter((movie) => {
+      if (currentGenreItem.toLowerCase() !== `all genres`) {
+        return movie.genre.toLowerCase() === currentGenreItem.toLowerCase();
+      }
+
+      return movie;
+    });
+  };
+
   return (
     <React.Fragment>
       <section className="movie-card">
@@ -85,7 +95,7 @@ const Main = (props) => {
           <div className="catalog__movies-list">
             {
               <MovieList
-                movies={movies}
+                movies={filterMoviesByGenre(movies)}
                 onCardTitleClick={onCardTitleClick}
               />
             }
@@ -121,6 +131,7 @@ Main.propTypes = {
   onCardTitleClick: PropTypes.func.isRequired,
   onGenreItemClick: PropTypes.func.isRequired
 };
+
 
 const mapStateToProps = (state) => {
   return {

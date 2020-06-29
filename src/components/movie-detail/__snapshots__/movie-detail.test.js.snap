@@ -81,7 +81,7 @@ exports[`MovieDetail component test component should renders correctly 1`] = `
             <span
               className="movie-card__genre"
             >
-              Thriller
+              Thrillers
             </span>
             <span
               className="movie-card__year"

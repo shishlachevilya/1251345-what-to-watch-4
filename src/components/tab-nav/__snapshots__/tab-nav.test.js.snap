@@ -15,7 +15,7 @@ exports[`TabNav component test component should renders correctly 1`] = `
         href="#"
         onClick={[Function]}
       >
-        Overview
+        overview
       </a>
     </li>
     <li
@@ -26,7 +26,7 @@ exports[`TabNav component test component should renders correctly 1`] = `
         href="#"
         onClick={[Function]}
       >
-        Details
+        details
       </a>
     </li>
     <li
@@ -37,7 +37,7 @@ exports[`TabNav component test component should renders correctly 1`] = `
         href="#"
         onClick={[Function]}
       >
-        Reviews
+        reviews
       </a>
     </li>
   </ul>
