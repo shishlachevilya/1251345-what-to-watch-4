@@ -1,5 +1,7 @@
-export const tabs = {
-  OVERVIEW: `Overview`,
-  DETAILS: `Details`,
-  REVIEWS: `Reviews`
+import {DETAIL_LABEL, OVERVIEW_LABEL, REVIEW_LABEL} from "../constants";
+
+export const TabLabel = {
+  OVERVIEW: OVERVIEW_LABEL,
+  DETAILS: DETAIL_LABEL,
+  REVIEWS: REVIEW_LABEL
 };

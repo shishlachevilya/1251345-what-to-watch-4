@@ -1,19 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {tabs} from "../../mocks/tabs";
+import {TabLabel} from "../../mocks/tabs";
 import TabNav from "../tab-nav/tab-nav";
 import TabDetails from "../tab-details/tab-details";
 import TabOverview from "../tab-overview/tab-overview";
 import TabReviews from "../tab-reviews/tab-reviews";
 import movies from "../../mocks/movies";
 import MovieList from "../movie-list/movie-list";
+import {MOVIE_LIKE_THIS_COUNT} from "../../constants";
 
 class MovieDetail extends React.PureComponent {
   constructor(props) {
     super(props);
 
     this.state = {
-      activeTab: tabs.OVERVIEW,
+      activeTab: TabLabel.OVERVIEW,
     };
 
     this.handlerChangeActiveTab = this.handlerChangeActiveTab.bind(this);
@@ -28,9 +29,9 @@ class MovieDetail extends React.PureComponent {
 
   renderActiveTab(label, movie) {
     switch (label) {
-      case tabs.DETAILS:
+      case TabLabel.DETAILS:
         return <TabDetails movie={movie}/>;
-      case tabs.REVIEWS:
+      case TabLabel.REVIEWS:
         return <TabReviews movie={movie}/>;
       default:
         return <TabOverview movie={movie}/>;
@@ -45,7 +46,7 @@ class MovieDetail extends React.PureComponent {
       }
     } = this.props;
 
-    return movies.filter((movie) => movie.id !== id && movie.genre === genre).slice(0, 4);
+    return movies.filter((movie) => movie.id !== id && movie.genre === genre).slice(0, MOVIE_LIKE_THIS_COUNT);
   }
 
   render() {
@@ -123,7 +124,7 @@ class MovieDetail extends React.PureComponent {
 
               <div className="movie-card__desc">
                 <TabNav
-                  tabs={tabs}
+                  tabs={TabLabel}
                   activeTab={activeTab}
                   onChangeActiveTab={this.handlerChangeActiveTab}
                 />

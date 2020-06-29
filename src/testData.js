@@ -169,13 +169,13 @@ export const movies = [
   }
 ];
 
-export const tabs = {
-  OVERVIEW: `Overview`,
-  DETAILS: `Details`,
-  REVIEWS: `Reviews`
+export const TabLabel = {
+  OVERVIEW: `overview`,
+  DETAILS: `details`,
+  REVIEWS: `reviews`
 };
 
 export default {
   movies,
-  tabs
+  TabLabel
 };
