@@ -5,7 +5,7 @@ import MoviePlayer from "../movie-player/movie-player";
 
 const MovieCard = (props) => {
   const {
-    card,
+    movie,
     onMouseOver,
     onMouseLeave,
     onCardTitleClick,
@@ -14,10 +14,10 @@ const MovieCard = (props) => {
 
   const {
     id,
-    name,
-    video,
+    title,
+    videoPrev,
     preview,
-  } = card;
+  } = movie;
 
   return (
     <article
@@ -31,9 +31,9 @@ const MovieCard = (props) => {
       >
         <div
           className="small-movie-card__image"
-          onClick={() => onCardTitleClick(card)}
+          onClick={() => onCardTitleClick(movie)}
         >
-          <MoviePlayer video={video} poster={preview} isHover={isHover}/>
+          <MoviePlayer video={videoPrev} poster={preview} isHover={isHover}/>
         </div>
       </Link>
 
@@ -42,14 +42,14 @@ const MovieCard = (props) => {
           className="small-movie-card__title"
           onClick={(e) => {
             e.preventDefault();
-            onCardTitleClick(card);
+            onCardTitleClick(movie);
           }}
         >
           <Link
             to="/detail"
             className="small-movie-card__link"
           >
-            {name}
+            {title}
           </Link>
         </h3>
       )}
@@ -58,10 +58,10 @@ const MovieCard = (props) => {
 };
 
 MovieCard.propTypes = {
-  card: PropTypes.shape({
+  movie: PropTypes.shape({
     id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    video: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    videoPrev: PropTypes.string.isRequired,
     preview: PropTypes.string.isRequired
   }),
   onMouseOver: PropTypes.func.isRequired,

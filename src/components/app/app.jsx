@@ -9,19 +9,19 @@ class App extends React.PureComponent {
     super(props);
 
     this.state = {
-      activeMovieCardInfo: {}
+      activeMovie: {}
     };
 
-    this.handleMovieCardTitleClick = this.handleMovieCardTitleClick.bind(this);
+    this.handleMovieTitleClick = this.handleMovieTitleClick.bind(this);
   }
 
-  handleMovieCardTitleClick(activeCard) {
-    this.setState({activeMovieCardInfo: activeCard});
+  handleMovieTitleClick(activeMovie) {
+    this.setState({activeMovie});
   }
 
   render() {
     const {movies} = this.props;
-    const {activeMovieCardInfo} = this.state;
+    const {activeMovie} = this.state;
 
     return (
       <BrowserRouter>
@@ -29,11 +29,14 @@ class App extends React.PureComponent {
           <Route exact path="/">
             <Main
               movies={movies}
-              onCardTitleClick={this.handleMovieCardTitleClick}
+              onCardTitleClick={this.handleMovieTitleClick}
             />
           </Route>
           <Route path="/detail">
-            <MovieDetail activeMovieCard={activeMovieCardInfo}/>
+            <MovieDetail
+              activeMovie={activeMovie}
+              onCardTitleClick={this.onCardTitleClick}
+            />
           </Route>
         </Switch>
       </BrowserRouter>

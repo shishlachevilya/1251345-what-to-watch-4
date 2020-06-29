@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import MovieCard from "../movie-card/movie-card";
-import withPlayer from "../../hocs/withPlayer";
+import withHover from "../../hocs/withHover";
 
-const Card = withPlayer(MovieCard);
+const Card = withHover(MovieCard);
 
 const MovieList = (props) => {
   const {movies, onCardTitleClick} = props;
@@ -16,7 +16,7 @@ const MovieList = (props) => {
         return (
           <Card
             key={id}
-            card={movie}
+            movie={movie}
             onCardTitleClick={onCardTitleClick}
           />
         );

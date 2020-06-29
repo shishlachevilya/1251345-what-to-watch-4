@@ -1,21 +1,15 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import MovieDetail from "./movie-detail";
+import TabReviews from "./tab-reviews";
 import {movies} from "../../testData";
-import {BrowserRouter as Router} from "react-router-dom";
 
 const movie = movies[0];
 
-describe(`MovieDetail component test`, () => {
+describe(`TabReviews component test`, () => {
   it(`component should renders correctly`, () => {
     const tree = renderer
     .create(
-        <Router>
-          <MovieDetail
-            activeMovie={movie}
-            onCardTitleClick={() => {}}
-          />
-        </Router>
+        <TabReviews movie={movie}/>
     )
     .toJSON();
     expect(tree).toMatchSnapshot();
