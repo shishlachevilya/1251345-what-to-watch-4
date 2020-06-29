@@ -1,9 +1,15 @@
 import React from "react";
 import ReactDom from "react-dom";
+import {createStore} from "redux";
+import {reducer} from "./reducer";
+import {Provider} from "react-redux";
 import App from "./components/app/app";
-import movies from "./mocks/movies";
+
+const store = createStore(reducer);
 
 ReactDom.render(
-    <App movies={movies} />,
+    <Provider store={store}>
+      <App/>
+    </Provider>,
     document.getElementById(`root`)
 );

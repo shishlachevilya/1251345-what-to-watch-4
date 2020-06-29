@@ -5,9 +5,9 @@ import TabNav from "../tab-nav/tab-nav";
 import TabDetails from "../tab-details/tab-details";
 import TabOverview from "../tab-overview/tab-overview";
 import TabReviews from "../tab-reviews/tab-reviews";
-import movies from "../../mocks/movies";
 import MovieList from "../movie-list/movie-list";
 import {MOVIE_LIKE_THIS_COUNT} from "../../constants";
+import {connect} from "react-redux";
 
 class MovieDetail extends React.PureComponent {
   constructor(props) {
@@ -40,6 +40,7 @@ class MovieDetail extends React.PureComponent {
 
   getMoreLikeThisMovies() {
     const {
+      movies,
       activeMovie: {
         id,
         genre
@@ -167,6 +168,7 @@ class MovieDetail extends React.PureComponent {
 }
 
 MovieDetail.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
   activeMovie: PropTypes.shape({
     id: PropTypes.string,
     title: PropTypes.string,
@@ -182,4 +184,10 @@ MovieDetail.defaultProps = {
   onCardTitleClick: () => {}
 };
 
-export default MovieDetail;
+const mapStateToProps = (state) => {
+  return {
+    movies: state.movies
+  };
+};
+
+export default connect(mapStateToProps)(MovieDetail);
