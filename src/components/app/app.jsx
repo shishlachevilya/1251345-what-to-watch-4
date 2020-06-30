@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Main from "../main/main.jsx";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import MovieDetail from "../movie-detail/movie-detail";
@@ -20,7 +19,6 @@ class App extends React.PureComponent {
   }
 
   render() {
-    const {movies} = this.props;
     const {activeMovie} = this.state;
 
     return (
@@ -28,7 +26,6 @@ class App extends React.PureComponent {
         <Switch>
           <Route exact path="/">
             <Main
-              movies={movies}
               onCardTitleClick={this.handleMovieTitleClick}
             />
           </Route>
@@ -43,9 +40,5 @@ class App extends React.PureComponent {
     );
   }
 }
-
-App.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.object).isRequired
-};
 
 export default App;

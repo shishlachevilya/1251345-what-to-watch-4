@@ -1,22 +1,26 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import App from "./app";
+import configureStore from "redux-mock-store";
+import {genreList, movies} from "../../testData";
+import {Provider} from "react-redux";
 
-const props = [
-  {
-    id: `1`,
-    path: `img/fantastic-beasts-the-crimes-of-grindelwald.jpg`,
-    title: `Fantastic Beasts: The Crimes of Grindelwald`
-  }
-];
+const mockStore = configureStore([]);
 
 describe(`App component test`, () => {
   it(`component should renders correctly`, () => {
+    const store = mockStore({
+      movies,
+      genreList,
+      currentGenreItem: genreList[0]
+    });
+
     const tree = renderer
     .create(
-        <App
-          movies={props}
-        />)
+        <Provider store={store}>
+          <App/>
+        </Provider>
+    )
     .toJSON();
 
     expect(tree).toMatchSnapshot();

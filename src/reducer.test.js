@@ -1,4 +1,7 @@
-export default [
+import {reducer} from "./reducer";
+import {GET_MOVIE_BY_GENRE} from "./constants";
+
+const movies = [
   {
     id: `1`,
     title: `Mindhunter`,
@@ -6,7 +9,7 @@ export default [
     preview: `img/mindhunter.jpg`,
     poster: `img/mindhunter.jpg`,
     background: `img/mindhunter.jpg`,
-    genre: `Thriller`,
+    genre: `Thrillers`,
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius quis lorem id iaculis. Sed eget luctus orci. Donec cursus lectus auctor quam tempus ultricies. Nullam at aliquam massa. Donec mollis quis urna eget condimentum. Mauris at dictum ante. Phasellus maximus massa augue, ut luctus dolor rutrum et. Aliquam faucibus turpis lectus, sed hendrerit dolor malesuada at.`,
     rating: 10.0,
     votes: 32,
@@ -60,7 +63,7 @@ export default [
     preview: `img/orlando.jpg`,
     poster: `img/orlando.jpg`,
     background: `img/orlando.jpg`,
-    genre: `Comedy`,
+    genre: `Comedies`,
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius quis lorem id iaculis. Sed eget luctus orci. Donec cursus lectus auctor quam tempus ultricies. Nullam at aliquam massa. Donec mollis quis urna eget condimentum. Mauris at dictum ante. Phasellus maximus massa augue, ut luctus dolor rutrum et. Aliquam faucibus turpis lectus, sed hendrerit dolor malesuada at.`,
     rating: 9.7,
     votes: 124,
@@ -101,7 +104,7 @@ export default [
     preview: `img/dardjeeling-limited.jpg`,
     poster: `img/dardjeeling-limited.jpg`,
     background: `img/dardjeeling-limited.jpg`,
-    genre: `Thriller`,
+    genre: `Thrillers`,
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius quis lorem id iaculis. Sed eget luctus orci. Donec cursus lectus auctor quam tempus ultricies. Nullam at aliquam massa. Donec mollis quis urna eget condimentum. Mauris at dictum ante. Phasellus maximus massa augue, ut luctus dolor rutrum et. Aliquam faucibus turpis lectus, sed hendrerit dolor malesuada at.`,
     rating: 8.0,
     votes: 170,
@@ -173,7 +176,7 @@ export default [
     preview: `img/seven-years-in-tibet.jpg`,
     poster: `img/seven-years-in-tibet.jpg`,
     background: `img/seven-years-in-tibet.jpg`,
-    genre: `Family`,
+    genre: `Kids & Family`,
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius quis lorem id iaculis. Sed eget luctus orci. Donec cursus lectus auctor quam tempus ultricies. Nullam at aliquam massa. Donec mollis quis urna eget condimentum. Mauris at dictum ante. Phasellus maximus massa augue, ut luctus dolor rutrum et. Aliquam faucibus turpis lectus, sed hendrerit dolor malesuada at.`,
     rating: 5.0,
     votes: 1255,
@@ -245,7 +248,7 @@ export default [
     preview: `img/snatch.jpg`,
     poster: `img/snatch.jpg`,
     background: `img/snatch.jpg`,
-    genre: `Comedy`,
+    genre: `Comedies`,
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius quis lorem id iaculis. Sed eget luctus orci. Donec cursus lectus auctor quam tempus ultricies. Nullam at aliquam massa. Donec mollis quis urna eget condimentum. Mauris at dictum ante. Phasellus maximus massa augue, ut luctus dolor rutrum et. Aliquam faucibus turpis lectus, sed hendrerit dolor malesuada at.`,
     rating: 3.0,
     votes: 22,
@@ -281,7 +284,7 @@ export default [
     preview: `img/pulp-fiction.jpg`,
     poster: `img/pulp-fiction.jpg`,
     background: `img/pulp-fiction.jpg`,
-    genre: `Drama`,
+    genre: `Dramas`,
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius quis lorem id iaculis. Sed eget luctus orci. Donec cursus lectus auctor quam tempus ultricies. Nullam at aliquam massa. Donec mollis quis urna eget condimentum. Mauris at dictum ante. Phasellus maximus massa augue, ut luctus dolor rutrum et. Aliquam faucibus turpis lectus, sed hendrerit dolor malesuada at.`,
     rating: 2.3,
     votes: 293,
@@ -312,3 +315,41 @@ export default [
     ]
   },
 ];
+
+const genreList = [
+  `All genres`,
+  `Comedies`,
+  `Crime`,
+  `Documentary`,
+  `Dramas`,
+  `Horror`,
+  `Kids & Family`,
+  `Romance`,
+  `Sci-Fi`,
+  `Thrillers`
+];
+
+describe(`App component test`, () => {
+  it(`Reducer without additional parameters should return initial state`, () => {
+    expect(reducer(void 0, {})).toEqual({
+      movies,
+      genreList,
+      currentGenreItem: `All genres`
+    });
+  });
+
+  it(`Reducer should change genre list label`, () => {
+    expect(reducer({
+      movies,
+      genreList,
+      currentGenreItem: `All genres`
+    }, {
+      type: GET_MOVIE_BY_GENRE,
+      payload: `Comedies`
+    })).toEqual({
+      movies,
+      genreList,
+      currentGenreItem: `Comedies`
+    });
+  });
+});

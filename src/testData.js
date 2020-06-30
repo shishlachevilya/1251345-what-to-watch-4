@@ -6,7 +6,7 @@ export const movies = [
     preview: `img/mindhunter.jpg`,
     poster: `img/mindhunter.jpg`,
     background: `img/mindhunter.jpg`,
-    genre: `Thriller`,
+    genre: `Thrillers`,
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius quis lorem id iaculis. Sed eget luctus orci. Donec cursus lectus auctor quam tempus ultricies. Nullam at aliquam massa. Donec mollis quis urna eget condimentum. Mauris at dictum ante. Phasellus maximus massa augue, ut luctus dolor rutrum et. Aliquam faucibus turpis lectus, sed hendrerit dolor malesuada at.`,
     rating: 10.0,
     votes: 32,
@@ -60,7 +60,7 @@ export const movies = [
     preview: `img/orlando.jpg`,
     poster: `img/orlando.jpg`,
     background: `img/orlando.jpg`,
-    genre: `Comedy`,
+    genre: `Comedies`,
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius quis lorem id iaculis. Sed eget luctus orci. Donec cursus lectus auctor quam tempus ultricies. Nullam at aliquam massa. Donec mollis quis urna eget condimentum. Mauris at dictum ante. Phasellus maximus massa augue, ut luctus dolor rutrum et. Aliquam faucibus turpis lectus, sed hendrerit dolor malesuada at.`,
     rating: 9.7,
     votes: 124,
@@ -101,7 +101,7 @@ export const movies = [
     preview: `img/dardjeeling-limited.jpg`,
     poster: `img/dardjeeling-limited.jpg`,
     background: `img/dardjeeling-limited.jpg`,
-    genre: `Thriller`,
+    genre: `Thrillers`,
     description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius quis lorem id iaculis. Sed eget luctus orci. Donec cursus lectus auctor quam tempus ultricies. Nullam at aliquam massa. Donec mollis quis urna eget condimentum. Mauris at dictum ante. Phasellus maximus massa augue, ut luctus dolor rutrum et. Aliquam faucibus turpis lectus, sed hendrerit dolor malesuada at.`,
     rating: 8.0,
     votes: 170,
@@ -169,13 +169,27 @@ export const movies = [
   }
 ];
 
-export const tabs = {
-  OVERVIEW: `Overview`,
-  DETAILS: `Details`,
-  REVIEWS: `Reviews`
+export const TabLabel = {
+  OVERVIEW: `overview`,
+  DETAILS: `details`,
+  REVIEWS: `reviews`
 };
+
+export const genreList = [
+  `All genres`,
+  `Comedies`,
+  `Crime`,
+  `Documentary`,
+  `Dramas`,
+  `Horror`,
+  `Kids & Family`,
+  `Romance`,
+  `Sci-Fi`,
+  `Thrillers`
+];
 
 export default {
   movies,
-  tabs
+  TabLabel,
+  genreList
 };
