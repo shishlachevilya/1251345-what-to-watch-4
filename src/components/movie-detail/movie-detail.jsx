@@ -6,7 +6,7 @@ import TabDetails from "../tab-details/tab-details";
 import TabOverview from "../tab-overview/tab-overview";
 import TabReviews from "../tab-reviews/tab-reviews";
 import MovieList from "../movie-list/movie-list";
-import {MOVIE_LIKE_THIS_COUNT} from "../../constants";
+import {Quantity} from "../../constants";
 import {connect} from "react-redux";
 
 class MovieDetail extends React.PureComponent {
@@ -47,7 +47,7 @@ class MovieDetail extends React.PureComponent {
       }
     } = this.props;
 
-    return movies.filter((movie) => movie.id !== id && movie.genre === genre).slice(0, MOVIE_LIKE_THIS_COUNT);
+    return movies.filter((movie) => movie.id !== id && movie.genre === genre).slice(0, Quantity.LIKE_THIS);
   }
 
   render() {
