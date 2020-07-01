@@ -20,7 +20,7 @@ const Main = (props) => {
         return movie.genre.toLowerCase() === currentGenreItem.toLowerCase();
       }
 
-      return movie;
+      return true;
     });
   };
 
@@ -135,7 +135,28 @@ const Main = (props) => {
 };
 
 Main.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+  movies: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    videoPrev: PropTypes.string.isRequired,
+    preview: PropTypes.string.isRequired,
+    poster: PropTypes.string.isRequired,
+    background: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    votes: PropTypes.number.isRequired,
+    director: PropTypes.string.isRequired,
+    starring: PropTypes.string.isRequired,
+    duration: PropTypes.number.isRequired,
+    release: PropTypes.number.isRequired,
+    reviews: PropTypes.arrayOf(PropTypes.shape({
+      text: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+      rating: PropTypes.number.isRequired,
+      date: PropTypes.string.isRequired,
+    })).isRequired
+  })).isRequired,
   currentGenreItem: PropTypes.string.isRequired,
   onCardTitleClick: PropTypes.func.isRequired,
   onGenreItemClick: PropTypes.func.isRequired
