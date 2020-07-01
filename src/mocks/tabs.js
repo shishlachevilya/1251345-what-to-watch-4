@@ -1,7 +1,7 @@
-import {DETAIL_LABEL, OVERVIEW_LABEL, REVIEW_LABEL} from "../constants";
+import {Label} from "../constants";
 
 export const TabLabel = {
-  OVERVIEW: OVERVIEW_LABEL,
-  DETAILS: DETAIL_LABEL,
-  REVIEWS: REVIEW_LABEL
+  OVERVIEW: Label.OVERVIEW,
+  DETAILS: Label.DETAILS,
+  REVIEWS: Label.REVIEWS
 };

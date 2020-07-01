@@ -4,11 +4,11 @@ import {connect} from "react-redux";
 import {getMovieByGenre} from "../../reducer";
 import MovieList from "../movie-list/movie-list";
 import GenreList from "../genre-list/genre-list";
+import {ALL_GENRES} from "../../constants";
 
 const Main = (props) => {
   const {
     movies,
-    genreList,
     currentGenreItem,
     onCardTitleClick,
     onGenreItemClick
@@ -16,12 +16,22 @@ const Main = (props) => {
 
   const filterMoviesByGenre = (movieArray) => {
     return movieArray.filter((movie) => {
-      if (currentGenreItem.toLowerCase() !== `all genres`) {
+      if (currentGenreItem.toLowerCase() !== ALL_GENRES) {
         return movie.genre.toLowerCase() === currentGenreItem.toLowerCase();
       }
 
       return movie;
     });
+  };
+
+  const setGenreList = () => {
+    return movies.reduce((acc, movie) => {
+      if (acc.indexOf(movie.genre) === -1) {
+        acc.push(movie.genre);
+      }
+
+      return acc;
+    }, [`All genres`]);
   };
 
   return (
@@ -87,7 +97,7 @@ const Main = (props) => {
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
           <GenreList
-            genreList={genreList}
+            genreList={setGenreList()}
             currentGenreItem={currentGenreItem}
             onGenreItemClick={onGenreItemClick}
           />
@@ -126,7 +136,6 @@ const Main = (props) => {
 
 Main.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-  genreList: PropTypes.arrayOf(PropTypes.string).isRequired,
   currentGenreItem: PropTypes.string.isRequired,
   onCardTitleClick: PropTypes.func.isRequired,
   onGenreItemClick: PropTypes.func.isRequired
@@ -136,7 +145,6 @@ Main.propTypes = {
 const mapStateToProps = (state) => {
   return {
     movies: state.movies,
-    genreList: state.genreList,
     currentGenreItem: state.currentGenreItem
   };
 };

@@ -1,5 +1,5 @@
 import {reducer} from "./reducer";
-import {GET_MOVIE_BY_GENRE} from "./constants";
+import {SET_GENRE} from "./constants";
 
 const movies = [
   {
@@ -316,24 +316,10 @@ const movies = [
   },
 ];
 
-const genreList = [
-  `All genres`,
-  `Comedies`,
-  `Crime`,
-  `Documentary`,
-  `Dramas`,
-  `Horror`,
-  `Kids & Family`,
-  `Romance`,
-  `Sci-Fi`,
-  `Thrillers`
-];
-
 describe(`App component test`, () => {
   it(`Reducer without additional parameters should return initial state`, () => {
     expect(reducer(void 0, {})).toEqual({
       movies,
-      genreList,
       currentGenreItem: `All genres`
     });
   });
@@ -341,14 +327,12 @@ describe(`App component test`, () => {
   it(`Reducer should change genre list label`, () => {
     expect(reducer({
       movies,
-      genreList,
       currentGenreItem: `All genres`
     }, {
-      type: GET_MOVIE_BY_GENRE,
+      type: SET_GENRE,
       payload: `Comedies`
     })).toEqual({
       movies,
-      genreList,
       currentGenreItem: `Comedies`
     });
   });

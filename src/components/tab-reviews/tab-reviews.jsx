@@ -5,7 +5,7 @@ const TabReviews = (props) => {
   const {movie} = props;
   const {reviews} = movie;
 
-  const reviewsSeparator = () => {
+  const returnSeparatedReviews = () => {
     return reviews.reduce((acc, review, i) => {
       if (i % 2 === 0) {
         acc.left.push(review);
@@ -41,11 +41,11 @@ const TabReviews = (props) => {
   return (
     <div className="movie-card__reviews movie-card__row">
       <div className="movie-card__reviews-col">
-        {renderReviews(reviewsSeparator().left)}
+        {renderReviews(returnSeparatedReviews().left)}
       </div>
 
       <div className="movie-card__reviews-col">
-        {renderReviews(reviewsSeparator().right)}
+        {renderReviews(returnSeparatedReviews().right)}
       </div>
     </div>
   );

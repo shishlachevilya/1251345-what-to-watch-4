@@ -1,19 +1,7 @@
-import {GET_MOVIE_BY_GENRE, GET_GENRE_LIST} from "./constants";
+import {SET_GENRE} from "./constants";
 import {extend} from "./helpers";
 
 const initialState = {
-  genreList: [
-    `All genres`,
-    `Comedies`,
-    `Crime`,
-    `Documentary`,
-    `Dramas`,
-    `Horror`,
-    `Kids & Family`,
-    `Romance`,
-    `Sci-Fi`,
-    `Thrillers`
-  ],
   currentGenreItem: `All genres`,
   movies: [
     {
@@ -333,12 +321,7 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_GENRE_LIST:
-      return extend(state, {
-        genreList: state.genreList
-      });
-
-    case GET_MOVIE_BY_GENRE:
+    case SET_GENRE:
       return extend(state, {
         currentGenreItem: action.payload,
       });
@@ -349,6 +332,6 @@ export const reducer = (state = initialState, action) => {
 };
 
 export const getMovieByGenre = (genre) => ({
-  type: GET_MOVIE_BY_GENRE,
+  type: SET_GENRE,
   payload: genre
 });
