@@ -8,7 +8,7 @@ import TabReviews from "../tab-reviews/tab-reviews";
 import MovieList from "../movie-list/movie-list";
 import {Quantity} from "../../constants";
 import {connect} from "react-redux";
-import withActiveTab from "../../hocs/with-active-tab";
+import withActiveItem from "../../hocs/with-active-item";
 
 const MovieDetail = (props) => {
   const {
@@ -19,7 +19,7 @@ const MovieDetail = (props) => {
       preview,
       release
     },
-    activeTab,
+    activeItem,
     onChangeActiveTab,
     onCardTitleClick
   } = props;
@@ -101,11 +101,11 @@ const MovieDetail = (props) => {
             <div className="movie-card__desc">
               <TabNav
                 tabs={TabLabel}
-                activeTab={activeTab}
+                activeItem={activeItem}
                 onChangeActiveTab={onChangeActiveTab}
               />
 
-              {renderActiveTab(activeTab, props.activeMovie)}
+              {renderActiveTab(activeItem, props.activeMovie)}
             </div>
           </div>
         </div>
@@ -171,7 +171,7 @@ MovieDetail.propTypes = {
     preview: PropTypes.string,
     release: PropTypes.number
   }),
-  activeTab: PropTypes.string.isRequired,
+  activeItem: PropTypes.string.isRequired,
   onChangeActiveTab: PropTypes.func.isRequired,
   onCardTitleClick: PropTypes.func
 };
@@ -187,4 +187,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(withActiveTab(MovieDetail));
+export default connect(mapStateToProps)(withActiveItem(MovieDetail));

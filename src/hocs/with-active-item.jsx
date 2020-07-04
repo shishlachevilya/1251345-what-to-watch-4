@@ -1,13 +1,13 @@
 import React from "react";
 import {TabLabel} from "../mocks/tabs";
 
-const withActiveTab = (Component) => {
-  return class WithActiveTab extends React.PureComponent {
+const withActiveItem = (Component) => {
+  return class WithActiveItem extends React.PureComponent {
     constructor(props) {
       super(props);
 
       this.state = {
-        activeTab: TabLabel.OVERVIEW,
+        activeItem: TabLabel.OVERVIEW,
       };
 
       this.handlerChangeActiveTab = this.handlerChangeActiveTab.bind(this);
@@ -15,7 +15,7 @@ const withActiveTab = (Component) => {
 
     handlerChangeActiveTab(label) {
       this.setState({
-        activeTab: label
+        activeItem: label
       });
     }
 
@@ -24,11 +24,11 @@ const withActiveTab = (Component) => {
         <Component
           {...this.props}
           onChangeActiveTab={this.handlerChangeActiveTab}
-          activeTab={this.state.activeTab}
+          activeItem={this.state.activeItem}
         />
       );
     }
   };
 };
 
-export default withActiveTab;
+export default withActiveItem;
