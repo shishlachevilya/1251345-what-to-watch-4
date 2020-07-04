@@ -1,5 +1,4 @@
 import {reducer} from "./reducer";
-import {SET_GENRE} from "./constants";
 
 const movies = [
   {
@@ -605,7 +604,7 @@ describe(`App component test`, () => {
       movies,
       currentGenreItem: `All genres`
     }, {
-      type: SET_GENRE,
+      type: `SET_GENRE`,
       payload: `Comedies`
     })).toEqual({
       movies,

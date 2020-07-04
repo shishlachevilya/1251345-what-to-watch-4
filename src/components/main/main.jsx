@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {getMovieByGenre} from "../../reducer";
 import MovieList from "../movie-list/movie-list";
 import GenreList from "../genre-list/genre-list";
-import {ALL_GENRES, Quantity} from "../../constants";
+import {ALL_GENRES, MOVIE_AMOUNT, Quantity} from "../../constants";
 import ShowMoreButton from "../show-more-button/show-more-button";
 
 class Main extends React.PureComponent {
@@ -12,7 +12,7 @@ class Main extends React.PureComponent {
     super(props);
 
     this.state = {
-      visible: 8,
+      visible: MOVIE_AMOUNT
     };
 
     this.filterMoviesByGenre = this.filterMoviesByGenre.bind(this);
@@ -24,13 +24,15 @@ class Main extends React.PureComponent {
     const {currentGenreItem} = this.props;
     const {visible} = this.state;
 
-    return movieArray.slice(0, visible).filter((movie) => {
-      if (currentGenreItem.toLowerCase() !== ALL_GENRES) {
+    const filteredMovies = movieArray.filter((movie) => {
+      if (currentGenreItem.toLowerCase() !== ALL_GENRES.toLocaleLowerCase()) {
         return movie.genre.toLowerCase() === currentGenreItem.toLowerCase();
       }
 
       return true;
     });
+
+    return filteredMovies.slice(0, visible);
   }
 
   loadMore() {
@@ -45,12 +47,12 @@ class Main extends React.PureComponent {
     const {movies} = this.props;
 
     return movies.reduce((acc, movie) => {
-      if (acc.indexOf(movie.genre) === -1) {
+      if (!acc.includes(movie.genre)) {
         acc.push(movie.genre);
       }
 
       return acc;
-    }, [`All genres`]);
+    }, [ALL_GENRES]);
   }
 
   render() {
