@@ -38,6 +38,7 @@ describe(`Main component`, () => {
               currentGenreItem={genreList[0]}
               onCardTitleClick={onCardTitleClick}
               onGenreItemClick={() => {}}
+              onLoadMoreMovies={() => {}}
             />
           </Router>
         </Provider>

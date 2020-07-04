@@ -11,7 +11,7 @@ describe(`ShowMoreButton component`, () => {
 
     const wrapper = shallow(
         <ShowMoreButton
-          loadMore={handlerShowMoreButtonClick}
+          onLoadMoreMovies={handlerShowMoreButtonClick}
         />
     );
 
