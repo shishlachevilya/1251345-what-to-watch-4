@@ -1,27 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {getMovieByGenre} from "../../reducer";
 import MovieList from "../movie-list/movie-list";
 import GenreList from "../genre-list/genre-list";
 import {ALL_GENRES} from "../../constants";
 import ShowMoreButton from "../show-more-button/show-more-button";
 import withMoreMovies from "../../hocs/with-more-movies";
+import withActiveItem from "../../hocs/with-active-item";
 
 const Main = (props) => {
   const {
     movies,
     visibleMoviesAmount,
-    currentGenreItem,
+    activeItem,
     onCardTitleClick,
-    onGenreItemClick,
+    onChangeActiveTab,
     onLoadMoreMovies
   } = props;
 
   const filterMoviesByGenre = (movieArray) => {
     const filteredMovies = movieArray.filter((movie) => {
-      if (currentGenreItem.toLowerCase() !== ALL_GENRES.toLocaleLowerCase()) {
-        return movie.genre.toLowerCase() === currentGenreItem.toLowerCase();
+      if (activeItem.toLowerCase() !== ALL_GENRES.toLocaleLowerCase()) {
+        return movie.genre.toLowerCase() === activeItem.toLowerCase();
       }
 
       return true;
@@ -104,8 +104,8 @@ const Main = (props) => {
 
           <GenreList
             genreList={setGenreList()}
-            currentGenreItem={currentGenreItem}
-            onGenreItemClick={onGenreItemClick}
+            currentGenreItem={activeItem}
+            onChangeActiveTab={onChangeActiveTab}
           />
 
           <div className="catalog__movies-list">
@@ -161,25 +161,18 @@ Main.propTypes = {
       date: PropTypes.string.isRequired,
     })).isRequired,
   })).isRequired,
-  currentGenreItem: PropTypes.string.isRequired,
+  activeItem: PropTypes.string.isRequired,
   visibleMoviesAmount: PropTypes.number.isRequired,
   onCardTitleClick: PropTypes.func.isRequired,
-  onGenreItemClick: PropTypes.func.isRequired,
+  onChangeActiveTab: PropTypes.func.isRequired,
   onLoadMoreMovies: PropTypes.func.isRequired
 };
 
 
 const mapStateToProps = (state) => {
   return {
-    movies: state.movies,
-    currentGenreItem: state.currentGenreItem,
+    movies: state.movies
   };
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  onGenreItemClick(currentGenreItem) {
-    dispatch(getMovieByGenre(currentGenreItem));
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(withMoreMovies(Main));
+export default connect(mapStateToProps)(withMoreMovies(withActiveItem(Main, `All genres`)));

@@ -594,21 +594,7 @@ const movies = [
 describe(`App component test`, () => {
   it(`Reducer without additional parameters should return initial state`, () => {
     expect(reducer(void 0, {})).toEqual({
-      movies,
-      currentGenreItem: `All genres`
-    });
-  });
-
-  it(`Reducer should change genre list label`, () => {
-    expect(reducer({
-      movies,
-      currentGenreItem: `All genres`
-    }, {
-      type: `SET_GENRE`,
-      payload: `Comedies`
-    })).toEqual({
-      movies,
-      currentGenreItem: `Comedies`
+      movies
     });
   });
 });

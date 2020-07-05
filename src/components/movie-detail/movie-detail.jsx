@@ -187,4 +187,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(withActiveItem(MovieDetail));
+export default connect(mapStateToProps)(withActiveItem(MovieDetail, TabLabel.OVERVIEW));

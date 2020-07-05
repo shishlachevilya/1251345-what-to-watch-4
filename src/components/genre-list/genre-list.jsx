@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import GenreListItem from "../genre-list-item/genre-list-item";
 
 const GenreList = (props) => {
-  const {genreList, currentGenreItem, onGenreItemClick} = props;
+  const {genreList, currentGenreItem, onChangeActiveTab} = props;
 
   return (
     <ul className="catalog__genres-list">
@@ -13,7 +13,7 @@ const GenreList = (props) => {
             key={`${i}-${genre}`}
             genre={genre}
             currentGenreItem={currentGenreItem}
-            onGenreItemClick={onGenreItemClick}
+            onChangeActiveTab={onChangeActiveTab}
           />
         );
       })}
@@ -24,7 +24,7 @@ const GenreList = (props) => {
 GenreList.propTypes = {
   genreList: PropTypes.arrayOf(PropTypes.string).isRequired,
   currentGenreItem: PropTypes.string.isRequired,
-  onGenreItemClick: PropTypes.func.isRequired
+  onChangeActiveTab: PropTypes.func.isRequired
 };
 
 export default GenreList;

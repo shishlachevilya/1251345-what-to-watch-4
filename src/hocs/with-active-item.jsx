@@ -1,13 +1,12 @@
 import React from "react";
-import {TabLabel} from "../mocks/tabs";
 
-const withActiveItem = (Component) => {
+const withActiveItem = (Component, defaultItemLabel) => {
   return class WithActiveItem extends React.PureComponent {
     constructor(props) {
       super(props);
 
       this.state = {
-        activeItem: TabLabel.OVERVIEW,
+        activeItem: defaultItemLabel
       };
 
       this.handlerChangeActiveTab = this.handlerChangeActiveTab.bind(this);

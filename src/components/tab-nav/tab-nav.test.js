@@ -9,7 +9,7 @@ describe(`TabNav component test`, () => {
     .create(
         <TabNav
           tabs={TabLabel}
-          activeTab={`test`}
+          activeItem={`test`}
           onChangeActiveTab={() => {}}
         />
     )

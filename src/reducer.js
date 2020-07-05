@@ -1,8 +1,4 @@
-import {SET_GENRE} from "./constants";
-import {extend} from "./helpers";
-
 const initialState = {
-  currentGenreItem: `All genres`,
   movies: [
     {
       id: `1`,
@@ -597,17 +593,8 @@ const initialState = {
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_GENRE:
-      return extend(state, {
-        currentGenreItem: action.payload,
-      });
-
     default:
       return state;
   }
 };
 
-export const getMovieByGenre = (genre) => ({
-  type: SET_GENRE,
-  payload: genre
-});
