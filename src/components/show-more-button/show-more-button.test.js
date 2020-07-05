@@ -7,7 +7,7 @@ describe(`ShowMoreButton component test`, () => {
     const tree = renderer
     .create(
         <ShowMoreButton
-          loadMore={() => {}}
+          onLoadMoreMovies={() => {}}
         />
     )
     .toJSON();

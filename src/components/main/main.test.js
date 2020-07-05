@@ -32,6 +32,7 @@ describe(`Main component test`, () => {
               currentGenreItem={genreList[0]}
               onCardTitleClick={() => {}}
               onGenreItemClick={() => {}}
+              onLoadMoreMovies={() => {}}
             />
           </Router>
         </Provider>
@@ -56,6 +57,7 @@ describe(`Main component test`, () => {
               currentGenreItem={genreList[0]}
               onCardTitleClick={() => {}}
               onGenreItemClick={() => {}}
+              onLoadMoreMovies={() => {}}
             />
           </Router>
         </Provider>

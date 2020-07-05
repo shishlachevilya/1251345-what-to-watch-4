@@ -1,5 +1,6 @@
 export const SET_GENRE = `SET_GENRE`;
-export const ALL_GENRES = `all genres`;
+export const ALL_GENRES = `All genres`;
+export const MOVIE_AMOUNT = 8;
 
 export const Quantity = {
   LIKE_THIS: 4,

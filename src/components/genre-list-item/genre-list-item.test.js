@@ -10,7 +10,7 @@ describe(`GenreListItem component test`, () => {
         <GenreListItem
           genre={genreList[0]}
           currentGenreItem={genreList[1]}
-          onGenreItemClick={() => {}}
+          onChangeActiveTab={() => {}}
         />
     )
     .toJSON();

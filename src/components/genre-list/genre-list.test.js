@@ -10,7 +10,7 @@ describe(`GenreList component test`, () => {
         <GenreList
           genreList={genreList}
           currentGenreItem={genreList[0]}
-          onGenreItemClick={() => {}}/>
+          onChangeActiveTab={() => {}}/>
     )
     .toJSON();
     expect(tree).toMatchSnapshot();

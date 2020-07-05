@@ -24,6 +24,8 @@ describe(`MovieDetail component test`, () => {
           <Router>
             <MovieDetail
               activeMovie={movie}
+              activeTab={`Overview`}
+              onChangeActiveTab={() => {}}
               onCardTitleClick={() => {}}
             />
           </Router>
