@@ -1,4 +1,7 @@
+import {extend} from "./helpers";
+
 const initialState = {
+  isMainPlayerShow: false,
   movies: [
     {
       id: `1`,
@@ -591,10 +594,22 @@ const initialState = {
   ]
 };
 
+const ActionType = {
+  TOGGLE_MAIN_PLAYER: `TOGGLE_MAIN_PLAYER`
+};
+
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case ActionType.TOGGLE_MAIN_PLAYER:
+      return extend(state, {
+        isMainPlayerShow: !state.isMainPlayerShow
+      });
     default:
       return state;
   }
 };
+
+export const toggleMainPlayer = () => ({
+  type: ActionType.TOGGLE_MAIN_PLAYER
+});
 
