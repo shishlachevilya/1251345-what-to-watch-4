@@ -32,6 +32,7 @@ describe(`MovieCard Component`, () => {
       preventDefault() {}
     };
 
+    window.HTMLMediaElement.prototype.play = () => {};
 
     component.simulate(`mouseenter`, mockEvent);
     component.simulate(`mouseleave`);
@@ -58,6 +59,8 @@ describe(`MovieCard Component`, () => {
     const mockEvent = {
       preventDefault() {}
     };
+
+    window.HTMLMediaElement.prototype.play = () => {};
 
     component.find(`.small-movie-card__title`).simulate(`click`, mockEvent);
 

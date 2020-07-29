@@ -198,4 +198,6 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
+export {Main};
+
 export default connect(mapStateToProps, mapDispatchToProps)(withMoreMovies(withActiveItem(Main, `All genres`)));

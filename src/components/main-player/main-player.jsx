@@ -113,4 +113,6 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
+export {MainPlayer};
+
 export default connect(null, mapDispatchToProps)(withMainPlayer(MainPlayer));

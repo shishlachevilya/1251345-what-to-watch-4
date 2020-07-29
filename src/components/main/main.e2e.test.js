@@ -39,10 +39,13 @@ describe(`Main component`, () => {
               onCardTitleClick={onCardTitleClick}
               onGenreItemClick={() => {}}
               onLoadMoreMovies={() => {}}
+              isMainPlayerShow={false}
             />
           </Router>
         </Provider>
     );
+
+    window.HTMLMediaElement.prototype.play = () => {};
 
     const movieTitles = component.find(`.small-movie-card__link`);
 

@@ -17,6 +17,8 @@ describe(`Movie player component`, () => {
         />
     );
 
+    window.HTMLMediaElement.prototype.play = () => {};
+
     wrapper.setProps({isHover: false});
 
     expect(wrapper.instance().props.isHover).toEqual(false);
