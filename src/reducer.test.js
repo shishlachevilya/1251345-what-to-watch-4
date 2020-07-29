@@ -594,7 +594,8 @@ const movies = [
 describe(`App component test`, () => {
   it(`Reducer without additional parameters should return initial state`, () => {
     expect(reducer(void 0, {})).toEqual({
-      movies
+      movies,
+      isMainPlayerShow: false
     });
   });
 });
