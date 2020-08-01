@@ -8,7 +8,7 @@ import ShowMoreButton from "../show-more-button/show-more-button";
 import withMoreMovies from "../../hocs/with-more-movies";
 import withActiveItem from "../../hocs/with-active-item";
 import MainPlayer from "../main-player/main-player";
-import {toggleMainPlayer} from "../../reducer";
+import {toggleMainPlayer} from "../../reducer/data/data";
 
 const Main = (props) => {
   const {

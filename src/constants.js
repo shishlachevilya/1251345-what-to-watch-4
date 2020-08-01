@@ -12,3 +12,8 @@ export const Label = {
   DETAILS: `Details`,
   REVIEWS: `Reviews`
 };
+
+export const AuthorizationStatus = {
+  AUTH: `AUTH`,
+  NO_AUTH: `NO_AUTH`
+};
