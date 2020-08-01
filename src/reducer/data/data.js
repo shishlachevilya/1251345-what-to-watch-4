@@ -1,4 +1,5 @@
 import {extend} from "../../helpers";
+import moviesAdapter from "../../adapters/movie-adapter";
 
 const initialState = {
   isMainPlayerShow: false,
@@ -22,10 +23,10 @@ const toggleMainPlayer = () => ({
 });
 
 const Operation = {
-  loadAllMovies: (dispatch, getState, api) => {
+  loadAllMovies: () => (dispatch, getState, api) => {
     return api.get(`/films`)
     .then((response) => {
-      dispatch(ActionCreator.setAllMovies(response.data));
+      dispatch(ActionCreator.setAllMovies(moviesAdapter(response.data)));
     });
   }
 };

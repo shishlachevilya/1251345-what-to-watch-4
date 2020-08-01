@@ -47,7 +47,7 @@ TabOverview.propTypes = {
     rating: PropTypes.number.isRequired,
     votes: PropTypes.number.isRequired,
     director: PropTypes.string.isRequired,
-    starring: PropTypes.string.isRequired,
+    starring: PropTypes.arrayOf(PropTypes.string).isRequired,
     duration: PropTypes.number.isRequired,
     release: PropTypes.number.isRequired,
     reviews: PropTypes.arrayOf(PropTypes.shape({

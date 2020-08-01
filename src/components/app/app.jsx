@@ -2,6 +2,10 @@ import React from "react";
 import Main from "../main/main.jsx";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import MovieDetail from "../movie-detail/movie-detail";
+import withActiveItem from "../../hocs/with-active-item";
+import {ALL_GENRES} from "../../constants";
+
+const MainWrap = withActiveItem(Main, ALL_GENRES);
 
 class App extends React.PureComponent {
   constructor(props) {
@@ -25,7 +29,7 @@ class App extends React.PureComponent {
       <BrowserRouter>
         <Switch>
           <Route exact path="/">
-            <Main
+            <MainWrap
               onCardTitleClick={this.handleMovieTitleClick}
             />
           </Route>
