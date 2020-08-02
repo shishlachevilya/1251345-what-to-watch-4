@@ -29,6 +29,7 @@ MovieList.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
+    bg: PropTypes.string.isRequired,
     videoPrev: PropTypes.string.isRequired,
     preview: PropTypes.string.isRequired,
     poster: PropTypes.string.isRequired,
@@ -38,7 +39,7 @@ MovieList.propTypes = {
     rating: PropTypes.number.isRequired,
     votes: PropTypes.number.isRequired,
     director: PropTypes.string.isRequired,
-    starring: PropTypes.string.isRequired,
+    starring: PropTypes.arrayOf(PropTypes.string).isRequired,
     duration: PropTypes.number.isRequired,
     release: PropTypes.number.isRequired,
     reviews: PropTypes.arrayOf(PropTypes.shape({

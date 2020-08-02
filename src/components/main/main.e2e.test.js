@@ -6,6 +6,7 @@ import {BrowserRouter as Router} from "react-router-dom";
 import {genreList, movies} from "../../testData";
 import {Provider} from "react-redux";
 import configureStore from "redux-mock-store";
+import NameSpace from "../../reducer/name-space";
 
 configure({
   adapter: new Adapter(),
@@ -20,9 +21,11 @@ describe(`Main component`, () => {
     };
 
     const store = mockStore({
-      movies,
-      genreList,
-      currentGenreItem: genreList[0]
+      [NameSpace.DATA]: {
+        movies,
+        genreList,
+        currentGenreItem: genreList[0]
+      }
     });
 
     const mockData = movies[0];
@@ -36,6 +39,7 @@ describe(`Main component`, () => {
               movies={movies}
               genreList={genreList}
               currentGenreItem={genreList[0]}
+              activeItem={`All genres`}
               onCardTitleClick={onCardTitleClick}
               onGenreItemClick={() => {}}
               onLoadMoreMovies={() => {}}

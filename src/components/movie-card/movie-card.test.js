@@ -13,6 +13,7 @@ describe(`MovieCard component test`, () => {
         <Router>
           <MovieCard
             movie={movie}
+            bg={`string`}
             onMouseOver={() => {}}
             onMouseLeave={() => {}}
             onCardTitleClick={() => {}}

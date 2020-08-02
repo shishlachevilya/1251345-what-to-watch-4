@@ -17,7 +17,7 @@ describe(`Main component test`, () => {
           activeItem={`one`}
           visibleMoviesAmount={8}
           movies={movies}
-          genreList={genreList}
+          genres={genreList}
           currentGenreItem={genreList[0]}
           onPlayButtonClick={() => {}}
           onChangeActiveTab={() => {}}
@@ -37,7 +37,7 @@ describe(`Main component test`, () => {
           activeItem={`one`}
           visibleMoviesAmount={8}
           movies={movies}
-          genreList={genreList}
+          genres={genreList}
           currentGenreItem={genreList[0]}
           onPlayButtonClick={() => {}}
           onChangeActiveTab={() => {}}

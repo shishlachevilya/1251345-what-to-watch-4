@@ -32,7 +32,9 @@ exports[`TabDetails component test component should renders correctly 1`] = `
       <span
         className="movie-card__details-value"
       >
-        Nicola Cage, Cara Delvin, Joseph Moser
+        Nicola Cage
+        Cara Delvin
+        Joseph Moser
       </span>
     </p>
   </div>

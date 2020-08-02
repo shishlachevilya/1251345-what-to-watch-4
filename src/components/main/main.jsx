@@ -6,13 +6,15 @@ import GenreList from "../genre-list/genre-list";
 import {ALL_GENRES} from "../../constants";
 import ShowMoreButton from "../show-more-button/show-more-button";
 import withMoreMovies from "../../hocs/with-more-movies";
-import withActiveItem from "../../hocs/with-active-item";
 import MainPlayer from "../main-player/main-player";
-import {toggleMainPlayer} from "../../reducer";
+import {toggleMainPlayer} from "../../reducer/data/data";
+import NameSpace from "../../reducer/name-space";
+import {getGenreList, getMoviesByGenre} from "../../reducer/data/celectors";
 
 const Main = (props) => {
   const {
     movies,
+    genres,
     visibleMoviesAmount,
     activeItem,
     isMainPlayerShow,
@@ -32,16 +34,6 @@ const Main = (props) => {
     });
 
     return filteredMovies.slice(0, visibleMoviesAmount);
-  };
-
-  const setGenreList = () => {
-    return movies.reduce((acc, movie) => {
-      if (!acc.includes(movie.genre)) {
-        acc.push(movie.genre);
-      }
-
-      return acc;
-    }, [ALL_GENRES]);
   };
 
   return (
@@ -113,7 +105,7 @@ const Main = (props) => {
               <h2 className="catalog__title visually-hidden">Catalog</h2>
 
               <GenreList
-                genreList={setGenreList()}
+                genreList={genres}
                 currentGenreItem={activeItem}
                 onChangeActiveTab={onChangeActiveTab}
               />
@@ -156,6 +148,7 @@ Main.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
+    bg: PropTypes.string.isRequired,
     videoPrev: PropTypes.string.isRequired,
     preview: PropTypes.string.isRequired,
     poster: PropTypes.string.isRequired,
@@ -165,7 +158,7 @@ Main.propTypes = {
     rating: PropTypes.number.isRequired,
     votes: PropTypes.number.isRequired,
     director: PropTypes.string.isRequired,
-    starring: PropTypes.string.isRequired,
+    starring: PropTypes.arrayOf(PropTypes.string).isRequired,
     duration: PropTypes.number.isRequired,
     release: PropTypes.number.isRequired,
     reviews: PropTypes.arrayOf(PropTypes.shape({
@@ -175,6 +168,7 @@ Main.propTypes = {
       date: PropTypes.string.isRequired,
     })).isRequired,
   })).isRequired,
+  genres: PropTypes.arrayOf(PropTypes.string),
   activeItem: PropTypes.string.isRequired,
   visibleMoviesAmount: PropTypes.number.isRequired,
   isMainPlayerShow: PropTypes.bool.isRequired,
@@ -184,11 +178,11 @@ Main.propTypes = {
   onPlayButtonClick: PropTypes.func.isRequired,
 };
 
-
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, props) => {
   return {
-    movies: state.movies,
-    isMainPlayerShow: state.isMainPlayerShow
+    movies: getMoviesByGenre(state, props.activeItem),
+    isMainPlayerShow: state[NameSpace.DATA].isMainPlayerShow,
+    genres: getGenreList(state)
   };
 };
 
@@ -200,4 +194,4 @@ const mapDispatchToProps = (dispatch) => ({
 
 export {Main};
 
-export default connect(mapStateToProps, mapDispatchToProps)(withMoreMovies(withActiveItem(Main, `All genres`)));
+export default connect(mapStateToProps, mapDispatchToProps)(withMoreMovies(Main));

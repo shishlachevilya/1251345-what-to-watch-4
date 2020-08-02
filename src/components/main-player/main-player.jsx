@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import {toggleMainPlayer} from "../../reducer";
+import {toggleMainPlayer} from "../../reducer/data/data";
 import PropTypes from "prop-types";
 import withMainPlayer from "../../hocs/with-main-player";
 

@@ -9,14 +9,17 @@ import MovieList from "../movie-list/movie-list";
 import {Quantity} from "../../constants";
 import {connect} from "react-redux";
 import withActiveItem from "../../hocs/with-active-item";
+import NameSpace from "../../reducer/name-space";
 
 const MovieDetail = (props) => {
   const {
     activeMovie: {
       id,
       title,
+      bg,
+      background,
+      poster,
       genre,
-      preview,
       release
     },
     activeItem,
@@ -41,10 +44,14 @@ const MovieDetail = (props) => {
 
   return (
     <div>
-      <section id={id} className="movie-card movie-card--full">
+      <section
+        id={id}
+        className="movie-card movie-card--full"
+        style={{backgroundColor: bg}}
+      >
         <div className="movie-card__hero">
           <div className="movie-card__bg">
-            <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel"/>
+            <img src={background} alt={title}/>
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -95,7 +102,7 @@ const MovieDetail = (props) => {
         <div className="movie-card__wrap movie-card__translate-top">
           <div className="movie-card__info">
             <div className="movie-card__poster movie-card__poster--big">
-              <img src={preview} alt={name} width="218" height="327"/>
+              <img src={poster} alt={title} width="218" height="327"/>
             </div>
 
             <div className="movie-card__desc">
@@ -154,7 +161,7 @@ MovieDetail.propTypes = {
     rating: PropTypes.number.isRequired,
     votes: PropTypes.number.isRequired,
     director: PropTypes.string.isRequired,
-    starring: PropTypes.string.isRequired,
+    starring: PropTypes.arrayOf(PropTypes.string).isRequired,
     duration: PropTypes.number.isRequired,
     release: PropTypes.number.isRequired,
     reviews: PropTypes.arrayOf(PropTypes.shape({
@@ -166,9 +173,11 @@ MovieDetail.propTypes = {
   })).isRequired,
   activeMovie: PropTypes.shape({
     id: PropTypes.string,
+    bg: PropTypes.string.isRequired,
+    background: PropTypes.string,
+    poster: PropTypes.string.isRequired,
     title: PropTypes.string,
     genre: PropTypes.string,
-    preview: PropTypes.string,
     release: PropTypes.number
   }),
   activeItem: PropTypes.string.isRequired,
@@ -183,7 +192,7 @@ MovieDetail.defaultProps = {
 
 const mapStateToProps = (state) => {
   return {
-    movies: state.movies
+    movies: state[NameSpace.DATA].movies
   };
 };
 
