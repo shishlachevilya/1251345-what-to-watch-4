@@ -16,7 +16,7 @@ const MovieDetail = (props) => {
     activeMovie: {
       id,
       title,
-      bg,
+      backgroundColor,
       background,
       poster,
       genre,
@@ -47,7 +47,7 @@ const MovieDetail = (props) => {
       <section
         id={id}
         className="movie-card movie-card--full"
-        style={{backgroundColor: bg}}
+        style={{backgroundColor}}
       >
         <div className="movie-card__hero">
           <div className="movie-card__bg">
@@ -173,7 +173,7 @@ MovieDetail.propTypes = {
   })).isRequired,
   activeMovie: PropTypes.shape({
     id: PropTypes.string,
-    bg: PropTypes.string.isRequired,
+    backgroundColor: PropTypes.string.isRequired,
     background: PropTypes.string,
     poster: PropTypes.string.isRequired,
     title: PropTypes.string,

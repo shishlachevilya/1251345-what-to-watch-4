@@ -1,4 +1,4 @@
-const moviesAdapter = (movies) => {
+const setMoviesAdapter = (movies) => {
   return movies.map((movie) => {
     return {
       id: movie.id.toString(),
@@ -58,4 +58,4 @@ const moviesAdapter = (movies) => {
   });
 };
 
-export default moviesAdapter;
+export default setMoviesAdapter;

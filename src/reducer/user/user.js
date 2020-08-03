@@ -1,30 +1,41 @@
-const AuthorizationStatus = {
-  AUTH: `AUTH`,
-  NO_AUTH: `NO_AUTH`,
-};
+import {extend} from "../../helpers";
+import {AuthorizationStatus} from "../../constants";
+import {setUserAdapter} from "../../adapters/user-adapter";
 
 const initialState = {
   authorizationStatus: AuthorizationStatus.NO_AUTH,
+  profile: {}
 };
 
 const ActionType = {
-  REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
+  SET_AUTHORIZATION: `SET_AUTHORIZATION`,
+  SET_USER_PROFILE: `SET_USER_PROFILE`
 };
 
 const ActionCreator = {
-  requireAuthorization: (status) => {
+  setAuthorization: (status) => {
     return {
-      type: ActionType.REQUIRED_AUTHORIZATION,
+      type: ActionType.SET_AUTHORIZATION,
       payload: status,
     };
   },
+  setUserProfile: (profile) => {
+    return {
+      type: ActionType.SET_USER_PROFILE,
+      payload: profile
+    };
+  }
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.REQUIRED_AUTHORIZATION:
-      return Object.assign({}, state, {
+    case ActionType.SET_AUTHORIZATION:
+      return extend(state, {
         authorizationStatus: action.payload,
+      });
+    case ActionType.SET_USER_PROFILE:
+      return extend(state, {
+        profile: action.payload
       });
   }
 
@@ -34,25 +45,23 @@ const reducer = (state = initialState, action) => {
 const Operation = {
   checkAuth: () => (dispatch, getState, api) => {
     return api.get(`/login`)
-    .then(() => {
-      dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
+    .then((response) => {
+      dispatch(ActionCreator.setAuthorization(AuthorizationStatus.AUTH));
+      dispatch(ActionCreator.setUserProfile(setUserAdapter(response.data)));
     })
-    .catch((err) => {
-      throw err;
+    .catch(() => {
+      dispatch(ActionCreator.setAuthorization(AuthorizationStatus.NO_AUTH));
     });
   },
 
   login: (authData) => (dispatch, getState, api) => {
-    return api.post(`/login`, {
-      email: authData.login,
-      password: authData.password,
-    })
-    .then(() => {
-      dispatch(ActionCreator.requireAuthorization(AuthorizationStatus.AUTH));
+    return api.post(`/login`, {email: authData.login, password: authData.password})
+    .then((response) => {
+      dispatch(ActionCreator.setAuthorization(AuthorizationStatus.AUTH));
+      dispatch(ActionCreator.setUserProfile(setUserAdapter(response.data)));
     });
   },
 };
-
 
 export {
   ActionCreator,

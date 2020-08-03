@@ -1,4 +1,5 @@
 import axios from "axios";
+import {StatusMessage} from "./constants";
 
 export const createApi = (onUnauthorized) => {
   const api = axios.create({
@@ -10,7 +11,7 @@ export const createApi = (onUnauthorized) => {
   const onSuccess = (response) => response;
 
   const onFail = (err) => {
-    if (err.response.status === 401) {
+    if (err.response.status === StatusMessage.UNAUTHORIZAD) {
       onUnauthorized();
       throw err;
     }

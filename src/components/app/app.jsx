@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Switch} from "react-router-dom";
 import MovieDetail from "../movie-detail/movie-detail";
 import withActiveItem from "../../hocs/with-active-item";
 import {ALL_GENRES} from "../../constants";
+import SignInPage from "../../pages/sign-in-page/sign-in-page";
 
 const MainWrap = withActiveItem(Main, ALL_GENRES);
 
@@ -38,6 +39,9 @@ class App extends React.PureComponent {
               activeMovie={activeMovie}
               onCardTitleClick={this.onCardTitleClick}
             />
+          </Route>
+          <Route path="/login">
+            <SignInPage/>
           </Route>
         </Switch>
       </BrowserRouter>

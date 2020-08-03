@@ -10,6 +10,9 @@ import MainPlayer from "../main-player/main-player";
 import {toggleMainPlayer} from "../../reducer/data/data";
 import NameSpace from "../../reducer/name-space";
 import {getGenreList, getMoviesByGenre} from "../../reducer/data/celectors";
+import {getAuthorizationStatus, getUserProfile} from "../../reducer/user/celectors";
+import {AuthorizationStatus} from "../../constants";
+import {Link} from "react-router-dom";
 
 const Main = (props) => {
   const {
@@ -21,7 +24,8 @@ const Main = (props) => {
     onCardTitleClick,
     onChangeActiveTab,
     onLoadMoreMovies,
-    onPlayButtonClick
+    onPlayButtonClick,
+    authorizationStatus
   } = props;
 
   const filterMoviesByGenre = (movieArray) => {
@@ -49,17 +53,22 @@ const Main = (props) => {
 
             <header className="page-header movie-card__head">
               <div className="logo">
-                <a className="logo__link">
+                <Link to="/" className="logo__link">
                   <span className="logo__letter logo__letter--1">W</span>
                   <span className="logo__letter logo__letter--2">T</span>
                   <span className="logo__letter logo__letter--3">W</span>
-                </a>
+                </Link>
               </div>
 
               <div className="user-block">
-                <div className="user-block__avatar">
-                  <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
-                </div>
+                {authorizationStatus === AuthorizationStatus.NO_AUTH ?
+                  (<Link to="/login" className="user-block__link">Sign in</Link>)
+                  :
+                  (
+                    <div className="user-block__avatar">
+                      <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
+                    </div>
+                  )}
               </div>
             </header>
 
@@ -176,13 +185,15 @@ Main.propTypes = {
   onChangeActiveTab: PropTypes.func.isRequired,
   onLoadMoreMovies: PropTypes.func.isRequired,
   onPlayButtonClick: PropTypes.func.isRequired,
+  authorizationStatus: PropTypes.string.isRequired
 };
 
 const mapStateToProps = (state, props) => {
   return {
     movies: getMoviesByGenre(state, props.activeItem),
     isMainPlayerShow: state[NameSpace.DATA].isMainPlayerShow,
-    genres: getGenreList(state)
+    genres: getGenreList(state),
+    authorizationStatus: getAuthorizationStatus(state)
   };
 };
 
@@ -193,5 +204,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export {Main};
-
 export default connect(mapStateToProps, mapDispatchToProps)(withMoreMovies(Main));
