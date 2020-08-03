@@ -25,7 +25,8 @@ const Main = (props) => {
     onChangeActiveTab,
     onLoadMoreMovies,
     onPlayButtonClick,
-    authorizationStatus
+    authorizationStatus,
+    user
   } = props;
 
   const filterMoviesByGenre = (movieArray) => {
@@ -66,7 +67,7 @@ const Main = (props) => {
                   :
                   (
                     <div className="user-block__avatar">
-                      <img src="img/avatar.jpg" alt="User avatar" width="63" height="63"/>
+                      <img src={`https://4.react.pages.academy${user.avatar}`} alt="User avatar" width="63" height="63"/>
                     </div>
                   )}
               </div>
@@ -177,6 +178,9 @@ Main.propTypes = {
       date: PropTypes.string.isRequired,
     })).isRequired,
   })).isRequired,
+  user: PropTypes.shape({
+    avatar: PropTypes.string
+  }),
   genres: PropTypes.arrayOf(PropTypes.string),
   activeItem: PropTypes.string.isRequired,
   visibleMoviesAmount: PropTypes.number.isRequired,
@@ -193,7 +197,8 @@ const mapStateToProps = (state, props) => {
     movies: getMoviesByGenre(state, props.activeItem),
     isMainPlayerShow: state[NameSpace.DATA].isMainPlayerShow,
     genres: getGenreList(state),
-    authorizationStatus: getAuthorizationStatus(state)
+    authorizationStatus: getAuthorizationStatus(state),
+    user: getUserProfile(state)
   };
 };
 

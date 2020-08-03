@@ -1,6 +1,7 @@
 import {extend} from "../../helpers";
 import {AuthorizationStatus} from "../../constants";
 import {setUserAdapter} from "../../adapters/user-adapter";
+import {userInfoAdapter} from "../../adapters/user-info-adapter";
 
 const initialState = {
   authorizationStatus: AuthorizationStatus.NO_AUTH,
@@ -47,7 +48,7 @@ const Operation = {
     return api.get(`/login`)
     .then((response) => {
       dispatch(ActionCreator.setAuthorization(AuthorizationStatus.AUTH));
-      dispatch(ActionCreator.setUserProfile(setUserAdapter(response.data)));
+      dispatch(ActionCreator.setUserProfile(userInfoAdapter(response.data)));
     })
     .catch(() => {
       dispatch(ActionCreator.setAuthorization(AuthorizationStatus.NO_AUTH));
@@ -55,10 +56,10 @@ const Operation = {
   },
 
   login: (authData) => (dispatch, getState, api) => {
-    return api.post(`/login`, {email: authData.login, password: authData.password})
+    return api.post(`/login`, {email: authData.email, password: authData.password})
     .then((response) => {
       dispatch(ActionCreator.setAuthorization(AuthorizationStatus.AUTH));
-      dispatch(ActionCreator.setUserProfile(setUserAdapter(response.data)));
+      dispatch(ActionCreator.setUserProfile(userInfoAdapter(response.data)));
     });
   },
 };

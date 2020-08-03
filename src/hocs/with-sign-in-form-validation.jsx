@@ -14,7 +14,7 @@ function withSignInFormValidation(Component) {
       };
 
       this.email = null;
-      this.pass = null;
+      this.password = null;
 
       this.onFormSubmit = this.onFormSubmit.bind(this);
       this.onFormChange = this.onFormChange.bind(this);
@@ -27,7 +27,7 @@ function withSignInFormValidation(Component) {
     }
 
     isPasswordTyped() {
-      if (this.pass) {
+      if (this.password) {
         return true;
       } else {
         return false;
@@ -68,7 +68,7 @@ function withSignInFormValidation(Component) {
           this.email = evt.target.value;
           break;
         case InputType.PASSWORD:
-          this.pass = evt.target.value;
+          this.password = evt.target.value;
           break;
       }
     }
@@ -94,7 +94,7 @@ function withSignInFormValidation(Component) {
       if (this.isEmailCorrect() && this.isPasswordTyped()) {
         this.props.onFormSubmit({
           email: this.email,
-          password: this.pass,
+          password: this.password,
         });
       }
     }
