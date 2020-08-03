@@ -15,6 +15,10 @@ describe(`App component test`, () => {
         movies,
         genreList,
         currentGenreItem: genreList[0]
+      },
+      [NameSpace.USER]: {
+        authorizationStatus: `NO_AUTH`,
+        profile: {},
       }
     });
 

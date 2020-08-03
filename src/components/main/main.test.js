@@ -4,6 +4,7 @@ import {Main} from "./main";
 import {shallow, configure} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import {genreList, movies} from "../../testData";
+import {BrowserRouter} from "react-router-dom";
 
 configure({
   adapter: new Adapter(),
@@ -13,19 +14,23 @@ describe(`Main component test`, () => {
   it(`component should renders correctly`, () => {
     const tree = renderer
     .create(
-        <Main
-          activeItem={`one`}
-          visibleMoviesAmount={8}
-          movies={movies}
-          genres={genreList}
-          currentGenreItem={genreList[0]}
-          onPlayButtonClick={() => {}}
-          onChangeActiveTab={() => {}}
-          onCardTitleClick={() => {}}
-          onGenreItemClick={() => {}}
-          onLoadMoreMovies={() => {}}
-          isMainPlayerShow={false}
-        />
+        <BrowserRouter>
+          <Main
+            activeItem={`one`}
+            authorizationStatus={`auth`}
+            user={{avatar: `avatar`}}
+            visibleMoviesAmount={8}
+            movies={movies}
+            genres={genreList}
+            currentGenreItem={genreList[0]}
+            onPlayButtonClick={() => {}}
+            onChangeActiveTab={() => {}}
+            onCardTitleClick={() => {}}
+            onGenreItemClick={() => {}}
+            onLoadMoreMovies={() => {}}
+            isMainPlayerShow={false}
+          />
+        </BrowserRouter>
     )
     .toJSON();
     expect(tree).toMatchSnapshot();
@@ -35,6 +40,8 @@ describe(`Main component test`, () => {
     const wrapper = shallow(
         <Main
           activeItem={`one`}
+          authorizationStatus={`auth`}
+          user={{avatar: `avatar`}}
           visibleMoviesAmount={8}
           movies={movies}
           genres={genreList}

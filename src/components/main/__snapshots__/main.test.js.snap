@@ -26,6 +26,8 @@ exports[`Main component test component should renders correctly 1`] = `
       >
         <a
           className="logo__link"
+          href="/"
+          onClick={[Function]}
         >
           <span
             className="logo__letter logo__letter--1"
@@ -53,7 +55,7 @@ exports[`Main component test component should renders correctly 1`] = `
           <img
             alt="User avatar"
             height="63"
-            src="img/avatar.jpg"
+            src="https://4.react.pages.academyavatar"
             width="63"
           />
         </div>

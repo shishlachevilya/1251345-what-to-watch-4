@@ -1,6 +1,5 @@
 import {extend} from "../../helpers";
 import {AuthorizationStatus} from "../../constants";
-import {setUserAdapter} from "../../adapters/user-adapter";
 import {userInfoAdapter} from "../../adapters/user-info-adapter";
 
 const initialState = {

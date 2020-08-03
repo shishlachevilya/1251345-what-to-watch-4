@@ -7,7 +7,7 @@ exports[`MovieDetail component test component should renders correctly 1`] = `
     id="1"
     style={
       Object {
-        "backgroundColor": "bg",
+        "backgroundColor": undefined,
       }
     }
   >

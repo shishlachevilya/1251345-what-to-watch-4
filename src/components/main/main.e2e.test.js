@@ -25,6 +25,10 @@ describe(`Main component`, () => {
         movies,
         genreList,
         currentGenreItem: genreList[0]
+      },
+      [NameSpace.USER]: {
+        authorizationStatus: `NO_AUTH`,
+        profile: {},
       }
     });
 
@@ -39,6 +43,7 @@ describe(`Main component`, () => {
               movies={movies}
               genreList={genreList}
               currentGenreItem={genreList[0]}
+              authorizationStatus={`authorizationStatus`}
               activeItem={`All genres`}
               onCardTitleClick={onCardTitleClick}
               onGenreItemClick={() => {}}
